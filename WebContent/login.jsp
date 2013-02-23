@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="login.jsp">
+<form method="post" action="login">
 <br>
 <br>
 	<table style="margin: auto;">
@@ -26,6 +26,15 @@
 	</tr>
 	<tr>
 		<td colspan="2" style="text-align: center;"><input type="submit" value="Login" name="btnSubmit" /></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align: center;">
+		<b><% if (request.getAttribute("message") != null )
+		{
+		 out.print( request.getAttribute("message") );
+		}
+		  %></b>
+		</td>
 	</tr>
 	</table>
 </form>
