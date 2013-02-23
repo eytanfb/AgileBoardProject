@@ -2,6 +2,7 @@
     <wb-module deploy-name="AgileBoardProject">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/DAL"/>
         <property name="context-root" value="AgileBoardProject"/>
         <property name="java-output-path" value="/AgileBoardProject/build/classes"/>
     </wb-module>

@@ -35,7 +35,7 @@ public class login extends HttpServlet {
 		
 		String username = request.getParameter("txtusername");
 		String password = request.getParameter("txtpassword");
-		if ( username!=null && password!=null && username.equalsIgnoreCase("1") && password.equalsIgnoreCase("1"))
+		if ( username!=null && password!=null && new commonDal().isItValidLogin(username, password))
 		{
 			RequestDispatcher d = request.getRequestDispatcher("/index.jsp");
 			d.forward(request, response);
