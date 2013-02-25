@@ -1,3 +1,6 @@
+CREATE DATABASE agile_board;
+USE agile_board;
+
 DROP TABLE tblCredentials;
 
 CREATE TABLE tblCredentials(
