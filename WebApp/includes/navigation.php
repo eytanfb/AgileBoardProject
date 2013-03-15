@@ -19,8 +19,8 @@
 						<li>
 							<span>Team</span>
 							<ul>
-								<li><a href="settings.php">Create new team</a></i>
-								<li><a href="settings.php">View all teams</a></i>
+								<li><a href="teamEdit.php">Create new team</a></i>
+								<li><a href="teamList.php">View all teams</a></i>
 							</ul>
 						</li>		
 						<li><a href="settings.php">Settings</a></li>
