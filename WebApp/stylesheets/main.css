@@ -73,9 +73,9 @@
 }
 
 
-#navigation a:link, #navigation a:visited
+#navigation a:link, #navigation a:visited, #navigation span
 {
-	color:Navy;
+	color:Black;
 	font-weight:bold;
 	text-decoration:none;
 	display:block;
@@ -85,6 +85,11 @@
 #navigation a:hover
 {
 	color:maroon;
+}
+
+#navigation span
+{
+	color:black;
 }
 
 #content

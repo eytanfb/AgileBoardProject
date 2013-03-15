@@ -16,6 +16,13 @@
 								?>
 							</ul>
 						</li>
+						<li>
+							<span>Team</span>
+							<ul>
+								<li><a href="settings.php">Create new team</a></i>
+								<li><a href="settings.php">View all teams</a></i>
+							</ul>
+						</li>		
 						<li><a href="settings.php">Settings</a></li>
 						<li><a href="logout.php">Logout</a></li>
 					</ul>
