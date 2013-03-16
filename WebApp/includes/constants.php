@@ -2,7 +2,7 @@
 
 	define('SERVER','localhost');
 	define('USERNAME','root');
-	define('PASSWORD','apple');
+	define('PASSWORD','root');
 	define('DBNAME','agile_board');
 	
 ?>
