@@ -20,6 +20,7 @@
 	{
 			$query = "INSERT teams (team_name,team_description) VALUES ('{$_POST['name']}', '{$_POST['description']}')";
 			mysql_query($query, $connection) or die(mysql_error());
+			header("Location: teamList.php");
 	}
 	elseif (isset($_POST['delete']))
 	{
