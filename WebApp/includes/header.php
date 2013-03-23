@@ -10,6 +10,8 @@
 		<!-- jquery UI -->
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-1.9.1.js"></script>
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-ui-1.10.2.custom.js"></script>
+		<script src="controls/comboBox.js"></script>
+		
 		
 		<!-- DataTables plugin -->
 		<style type="text/css" title="currentStyle">
