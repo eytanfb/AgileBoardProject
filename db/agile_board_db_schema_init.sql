@@ -69,7 +69,7 @@ FOREIGN KEY(ib_id_fk) REFERENCES boards(board_id_pk)
 
 /*Table to store status type details*/
 CREATE TABLE statuses(
-status_id_pk INT,
+status_id_pk VARCHAR(20),
 status_name VARCHAR(40),
 PRIMARY KEY(status_id_pk)
 );
@@ -84,7 +84,7 @@ task_creator_id_fk INT,
 taks_responsible_person_fk INT,
 task_work_estimation INT,
 ti_id_fk INT,
-ts_id_fk INT,
+ts_id_fk VARCHAR(20),
 PRIMARY KEY(task_id_pk),
 FOREIGN KEY (task_creator_id_fk) REFERENCES users(user_id_pk),
 FOREIGN KEY (taks_responsible_person_fk) REFERENCES users(user_id_pk),
