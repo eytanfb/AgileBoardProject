@@ -4,9 +4,9 @@
 	
 	function set_session($user,$team)
 	{
-		$_SESSION['username'] = $user['UserName'];
-		$_SESSION['user_name'] = $user['F_Name'] . ' ' .$user['L_Name'];
-		$_SESSION['team_num'] = $user['Team_Num'];
+		$_SESSION['username'] = $user['user_login'];
+		$_SESSION['user_name'] = $user['user_first_name'] . ' ' .$user['user_last_name'];
+		$_SESSION['team_num'] = $team['team_id_pk'];
 		$_SESSION['team_name'] = $team['team_name'];
 	}
 	
