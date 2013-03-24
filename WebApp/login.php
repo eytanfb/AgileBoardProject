@@ -19,7 +19,7 @@
 		}
 		else
 		{
-			$query= "SELECT * FROM tblCredentials WHERE Username='{$username}' AND Passwrd='{$password}' LIMIT 1";
+			$query= "SELECT * FROM users JOIN roles ON ( users.user_role_fk = roles.role_id_pk ) WHERE ( users.user_login = '{$username}') AND ( users.user_password = '{$password}' ) LIMIT 1";
 			$result_set = mysql_query($query, $connection);
 
 			if (mysql_num_rows($result_set)  == 1 )
