@@ -77,7 +77,7 @@ PRIMARY KEY(status_id_pk)
 
 /*Table to store task details*/
 CREATE TABLE tasks(
-task_id_pk INT,
+task_id_pk INT NOT NULL AUTO_INCREMENT,
 task_name VARCHAR(40),
 task_description VARCHAR(100),
 task_creator_id_fk INT,

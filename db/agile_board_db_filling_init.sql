@@ -18,6 +18,8 @@ INSERT INTO statuses VALUES ("TODO", "TODO");
 INSERT INTO statuses VALUES ("DOING", "DOING");
 INSERT INTO statuses VALUES ("DONE", "DONE");
 
+INSERT INTO boards VALUES (0, 1, "Team 1, agile board", "false");
+
 
 /*
 
