@@ -14,6 +14,16 @@
 		margin:1px;
 		border:1px solid black;
 	}
+	
+	.column-header{
+		width:100%;
+		color:maroon;
+		font:Times;
+		font-size:20pt;
+		font-weight:bold;
+		text-align:center;
+		margin:0px;
+	}
 		
 	.ui-sortable-placeholder { 
 		border: 1px dotted black; 
@@ -53,7 +63,7 @@
 		width:110px;
 		height:20px;
 		margin-left:3px;
-		font-family:Serif;
+		font-family:"Comic Sans MS";
 		font-size:10pt;
 	}
 	
@@ -98,7 +108,7 @@
 
 		var taskTemplate =  "<li class='portlet'> \
 			    					<div class='portlet-container'> \
-			 		   					<span class='ui-icon ui-icon-arrow-4-diag'></span> \
+			 		   					<div class='ui-icon ui-icon-arrow-4-diag' style='float:left'></div> <div style='float:right'><a class='ui-icon ui-icon-trash' href='#' onclick='deleteTask($(this))'></a></div> \
 			 							<input id='taskId' name='taskId' type='hidden' value='[taskIdVal]' > \
 					    				<input id='taskName' name='taskName' type='text' placeholder='Task Name' value='[taskNameVal]'> \
 	 									<input id='taskDesc' name='taskDesc' type='text' placeholder='Task Desc' value='[taskDesc]'> \
@@ -123,11 +133,40 @@
 			$('#toDo').append(t);			
 		}
 	}	
+	
+	//delete task
+	function deleteTask(item)
+	{
+		deleteTaskId = item.parent().parent().parent().find('#taskId').val();
+				
+		 if (taskId != -1)
+		 {
+			//remove from DB
+			$.post('saveBoard.php', {"action":"delete","task_id_pk":deleteTaskId}, function(data){ console.log(data)});	
+		 }
+		
+		item.parent().parent().parent().first().remove();
+	}
+	
+	//Save (insert & update) task
+	function saveTask(){			
+		d =  {
+			"action":"submit",
+			"task_id_pk" : $(this).find('#taskId').val(),
+			"task_name"  : $(this).find('#taskName').val(),
+		    "task_description" :  $(this).find('#taskDesc').val(),
+			"task_creator_id_fk" :  "",
+			"taks_responsible_person_fk" : $(this).find('#taskResponsibleId').val(),
+			"task_work_estimation" : $(this).find('#taskEstimate').val(),		
+			"ti_id_fk":  $(this).parent().attr('id').toUpperCase()				
+		 };				
+		$.post('saveBoard.php', d, function(data){ console.log(data)});
+	}
+	
 						
 	$(function() {
 		
 		$('#addNewTask').button({icons:{primary:"ui-icon-document"}});
-		$('#reloadBoard').button({icons:{primary:"ui-icon-refresh"}});
 		$('#saveBoard').button({icons:{primary:"ui-icon-disk"}});
 		$("#iterationSelector").combobox();	
 	
@@ -137,17 +176,7 @@
 			
 		//Save board		
 		$('#saveBoard').click(function() {			
-			$('#toDo li').each(function(){			
-				d =  {
-				  	"task_id_pk" : $(this).find('#taskId').val(),
-					"task_id_pk" : $(this).find('#taskId').val(),
-					"task_name"  : $(this).find('#taskName').val(),
-				    "task_description" :  $(this).find('#taskDesc').val(),
-					"task_work_estimation" : $(this).find('#taskEstimate').val(),
-					"taks_responsible_person_fk" : $(this).find('#taskResponsibleId').val()
-				 };				
-				$.post('saveBoard.php', d, function(data){ console.log(data)});			
-			});
+			$('#toDo li').each(	saveTask );
 		});
 			 		
 		
@@ -201,23 +230,25 @@
 						</select>
 
 					<div style="float:right">
-						<button id="reloadBoard">Reload Board</button>
 						<button id="saveBoard">Save Board</button>
 					</div>
 					
 				</div>			
 				
-				<div class="column">						
+				<div class="column">
+						<div class='column-header'>To Do</div>
 						<ul id="toDo" class="taskContainer">																	
 						</ul>							
 				</div>
 				
 				<div class="column">					
+						<div class='column-header'>Doing</div>					
 						<ul id="doing" class="taskContainer">
 						</ul>
 				</div>
 				
 				<div class="column">
+						<div class='column-header'>Done</div>					
 						<ul id="done" class="taskContainer">
 						</ul>					
 				</div>
