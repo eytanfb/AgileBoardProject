@@ -93,7 +93,7 @@
 
 	<?php
 
-		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk FROM tasks";
+		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks";
 		$items = mysql_query($query);
 		$data = array();
 		while( $item = mysql_fetch_array($items) )
@@ -130,7 +130,7 @@
 			t = t.replace('[taskEstimateVal]',task['task_work_estimation']);
 			t = t.replace('[taskResponsibleIdVal]',task['taks_responsible_person_fk']);
 			
-			$('#toDo').append(t);			
+			$('#'+ task['ts_id_fk'].toLowerCase()).append(t);			
 		}
 	}	
 	
@@ -158,7 +158,7 @@
 			"task_creator_id_fk" :  "",
 			"taks_responsible_person_fk" : $(this).find('#taskResponsibleId').val(),
 			"task_work_estimation" : $(this).find('#taskEstimate').val(),		
-			"ti_id_fk":  $(this).parent().attr('id').toUpperCase()				
+			"ts_id_fk":  $(this).parent().attr('id').toUpperCase()				
 		 };				
 		$.post('saveBoard.php', d, function(data){ console.log(data)});
 	}
@@ -176,7 +176,9 @@
 			
 		//Save board		
 		$('#saveBoard').click(function() {			
-			$('#toDo li').each(	saveTask );
+			$('#todo li').each(saveTask );
+			$('#doing li').each(saveTask );
+			$('#done li').each(	saveTask );
 		});
 			 		
 		
@@ -201,7 +203,7 @@
 			t = t.replace('[taskResponsibleNameVal]','');
 			t = t.replace('[taskResponsibleIdVal]','-1');
 
-			$('#toDo').append(t);
+			$('#todo').append(t);
 			
 		});															
 			
@@ -237,7 +239,7 @@
 				
 				<div class="column">
 						<div class='column-header'>To Do</div>
-						<ul id="toDo" class="taskContainer">																	
+						<ul id="todo" class="taskContainer">																	
 						</ul>							
 				</div>
 				
