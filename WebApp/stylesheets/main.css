@@ -7,8 +7,9 @@
 {
 	width:100%;
 	background-color:red;
-	border: 2px solid black;
-	height:50px;
+	border: 1px solid black;
+	height:40px;
+	margin:2px;
 }
 
 #header #left
@@ -47,56 +48,21 @@
 	clear:both;
 }
 
-#navigation
+#navigation-container
 {
 	float:left;
-	width:15%;
-	background-color:white;
-	display:table-column;
+	margin:4px;
 }
 
-#navigation ul
+.ui-menu 
 {
-	list-style:none;
-
-}
-
-#navigation li
-{
-	list-style:none;
-	border: 1px solid black;
-}
-
-#navigation ul>li>ul>li
-{
-	border: 0px;
-}
-
-
-#navigation a:link, #navigation a:visited, #navigation span
-{
-	color:Black;
-	font-weight:bold;
-	text-decoration:none;
-	display:block;
-	line-height:220%;
-	padding-left:10px;
-}
-#navigation a:hover
-{
-	color:maroon;
-}
-
-#navigation span
-{
-	color:black;
+	 width: 150px; 
 }
 
 #content
 {
 	float:left;
-	width:70%;
-	background-color:white;
+	width:90%;
 	display:table-column;
 }
 

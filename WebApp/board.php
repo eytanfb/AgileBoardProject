@@ -9,9 +9,9 @@
 
 	.column { 
 		width: 33%;
-		height:100%; 
+		height: 88%; 
 		float: left; 
-		margin:1px;
+		margin:5px 1px;
 		border:1px solid black;
 	}
 	
@@ -234,9 +234,9 @@
 
 </script>
 
-			<div id="content" style="width:80%;height:90%">
+			<div id="content">
 				
-				<div style="clear:both;">
+				<div style="clear:both">
 
 						<button id="addNewTask">Add a New Task</button>
 
@@ -258,19 +258,19 @@
 					
 				</div>			
 				
-				<div class="column">
+				<div class="column ui-widget  ui-corner-all" >
 						<div class='column-header'>To Do</div>
 						<ul id="todo" class="taskContainer">																	
 						</ul>							
 				</div>
 				
-				<div class="column">					
+				<div class="column ui-widget  ui-corner-all">					
 						<div class='column-header'>Doing</div>					
 						<ul id="doing" class="taskContainer">
 						</ul>
 				</div>
 				
-				<div class="column">
+				<div class="column ui-widget  ui-corner-all">
 						<div class='column-header'>Done</div>					
 						<ul id="done" class="taskContainer">
 						</ul>					

@@ -11,7 +11,12 @@
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-1.9.1.js"></script>
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-ui-1.10.2.custom.js"></script>
 		<script src="controls/comboBox.js"></script>
-		
+		<script type="text/javascript">
+			
+			$(document).ready(function(){
+				$( "#menu" ).menu(); 
+			});
+		</script>
 		
 		<!-- DataTables plugin -->
 		<style type="text/css" title="currentStyle">
@@ -22,10 +27,10 @@
 	</head>
 	<body>
 		<?php if ( strstr(strtolower($_SERVER['PHP_SELF']),'login.php') != 'login.php' ): ?>
-		<div id="header" >
+		<div id="header" class="ui-widget  ui-corner-all">
 			
 			<div id="left"><?php echo $_SESSION['team_name']; ?></div>
-			<div id="center">Board Name:</div>
+			<div id="center">Agile Board</div>
 			<div id="right"><?php echo $_SESSION["user_name"]; ?></div>
 				
 		</div>
