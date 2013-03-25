@@ -4,6 +4,7 @@
 	
 	function set_session($user,$team)
 	{
+		$_SESSION['user_id'] = $user['user_id_pk'];
 		$_SESSION['username'] = $user['user_login'];
 		$_SESSION['user_name'] = $user['user_first_name'] . ' ' .$user['user_last_name'];
 		$_SESSION['team_num'] = $team['team_id_pk'];

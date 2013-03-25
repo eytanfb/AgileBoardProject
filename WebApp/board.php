@@ -35,7 +35,7 @@
  
 	
 	.portlet { 
-		width:120px;
+		width:150px;
 		height:120px;
 	}
 	
@@ -56,11 +56,11 @@
 		margin:0 5px;
 	}
 	
-	input[id*="task"] {
+	input[id*="task"] , select, option{
 		border:0px;
 		color:black;
 		background-color:yellow;
-		width:110px;
+		width:145px;
 		height:20px;
 		margin-left:3px;
 		font-family:"Comic Sans MS";
@@ -113,10 +113,22 @@
 					    				<input id='taskName' name='taskName' type='text' placeholder='Task Name' value='[taskNameVal]'> \
 	 									<input id='taskDesc' name='taskDesc' type='text' placeholder='Task Desc' value='[taskDesc]'> \
 	 									<input id='taskEstimate' name='taskEstimate' type='text' placeholder='Task Estimate (hour)' value='[taskEstimateVal]' > \
-	 									<input id='taskResponsibleName' name='taskResponsibleName' type='text' placeholder='Task Responsible' value='[taskResponsibleNameVal]' > \
-										<input id='taskResponsibleId' name='taskResponsibleId' type='hidden' value='[taskResponsibleIdVal]' > \
+										<select id='taskReponsibleUser' name='reponsibleUser'>[UserList_PLACEHOLDER]</select> \
 	 	   							</div>  \
 	  						</li>";
+	var userListItem =  <?php
+							echo '"'. "<option value='-1'>Task Responsible</option>";
+							$queryu = "SELECT users.user_id_pk, users.user_login, users.user_first_name, users.user_last_name FROM team_users LEFT JOIN users ON users.user_id_pk=team_users.tu_user_id_pk_fk WHERE team_users.tu_team_id_pk_fk='{$_SESSION['team_num']}'";
+							$itemsu = mysql_query($queryu) or die(mysql_error());
+							while ($itemu = mysql_fetch_array($itemsu))
+							{
+								echo   "<option value='{$itemu['user_id_pk']}'>{$itemu['user_first_name']} {$itemu['user_last_name']}</option>";
+							}
+							echo '";';							
+						?>
+		taskTemplate = taskTemplate.replace('[UserList_PLACEHOLDER]',userListItem);
+	
+	
 
 	function drawBoard()
 	{
@@ -128,8 +140,7 @@
 			t = t.replace('[taskNameVal]',task['task_name']);
 			t = t.replace('[taskDesc]',task['task_description']);
 			t = t.replace('[taskEstimateVal]',task['task_work_estimation']);
-			t = t.replace('[taskResponsibleIdVal]',task['taks_responsible_person_fk']);
-			
+			t = t.replace("<option value='" + task['taks_responsible_person_fk'] + "'>" ,"<option value='" + task['taks_responsible_person_fk'] + "' selected >");
 			$('#'+ task['ts_id_fk'].toLowerCase()).append(t);			
 		}
 	}	
@@ -142,7 +153,7 @@
 		 if (taskId != -1)
 		 {
 			//remove from DB
-			$.post('saveBoard.php', {"action":"delete","task_id_pk":deleteTaskId}, function(data){ console.log(data)});	
+			$.post('saveBoard.php', {"action":"delete","task_id_pk":deleteTaskId}, function(data){});	
 		 }
 		
 		item.parent().parent().parent().first().remove();
@@ -155,12 +166,19 @@
 			"task_id_pk" : $(this).find('#taskId').val(),
 			"task_name"  : $(this).find('#taskName').val(),
 		    "task_description" :  $(this).find('#taskDesc').val(),
-			"task_creator_id_fk" :  "",
-			"taks_responsible_person_fk" : $(this).find('#taskResponsibleId').val(),
+			"task_creator_id_fk" : <?php  echo $_SESSION['user_id'] ?>,
+			"taks_responsible_person_fk" : $(this).find('#taskReponsibleUser').find(':selected').val(),
 			"task_work_estimation" : $(this).find('#taskEstimate').val(),		
 			"ts_id_fk":  $(this).parent().attr('id').toUpperCase()				
-		 };				
-		$.post('saveBoard.php', d, function(data){ console.log(data)});
+		 };	
+
+		$.ajax({
+			type: 'POST',
+			url: 'saveBoard.php',
+			data: d,
+			async:false,
+			success : function(data){ }			
+		});
 	}
 	
 						
@@ -169,6 +187,7 @@
 		$('#addNewTask').button({icons:{primary:"ui-icon-document"}});
 		$('#saveBoard').button({icons:{primary:"ui-icon-disk"}});
 		$("#iterationSelector").combobox();	
+		$('#iterationSelector_searhtxt').css('width','500px');
 	
 			
 		//load board
@@ -179,6 +198,8 @@
 			$('#todo li').each(saveTask );
 			$('#doing li').each(saveTask );
 			$('#done li').each(	saveTask );
+			
+			window.location.href = 'board.php';
 		});
 			 		
 		
@@ -222,11 +243,11 @@
 						
 						<select id="iterationSelector" name="iterationID" style="display:none;">
 							<?php
-								$squery= "SELECT * FROM iterations order by iteration_start_date desc "; //$_SESSION['team_num']
-								$sitems = mysql_query($query) or dire (mysql_error());
+								$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_num']}' order by iteration_start_date desc ";
+								$sitems = mysql_query($squery) or dire (mysql_error());
 								while ( $sitem = mysql_fetch_array($sitems) )
 								{
-									echo "<option value='1'> {$sitem['iteration_number']} : {$sitem['iteration_start_date']} - {$sitem['iteration_end_date']}  </option>";
+									echo "<option value='{$sitem['iteration_id_pk']}'>  {$sitem['board_name']} > {$sitem['iteration_number']} : {$sitem['iteration_start_date']} - {$sitem['iteration_end_date']}  </option>";
 								}
 							?>
 						</select>
@@ -254,7 +275,7 @@
 						<ul id="done" class="taskContainer">
 						</ul>					
 				</div>
-					
+									
 			</div>
 
 <?php include('includes/footer.php')?>
