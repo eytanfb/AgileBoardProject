@@ -11,6 +11,9 @@
 			$(document).ready(function() {
 				
 				$('#btnAdd').button({ icons: {primary:"ui-button ui-icon ui-icon-circle-plus" }});
+				$('#btnHome').button({ icons: {primary:"ui-icon-arrowthick-1-w" }});
+				
+				
 				
 				$('#gridTeams').dataTable({
 					"bJQueryUI": true,
@@ -27,6 +30,7 @@
 
 			<div id="content">
 				<div style="width:800px;margin: 30px auto;">
+					<button id="btnHome" type="button" onclick="location.href='board.php'">Back to Board Page</button>										
 					<button id="btnAdd" type="button" onclick="location.href='teamEdit.php?id=-1'">Add A New Team</button>					
 					<table id="gridTeams">
 						<thead>

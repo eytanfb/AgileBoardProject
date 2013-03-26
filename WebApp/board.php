@@ -254,12 +254,16 @@
 				
 				<div style="clear:both;width:100%;">
 						
-						<div style="float:left;width:70%">
-							
-							<button id="addNewTask">Add a New Task</button>
-							<button id="saveBoard">Save Board</button>
 							<?Php
-								//Administrator
+								//User
+								if ($_SESSION['user_role'] == 1):
+								?>							
+								<button id="addNewTask">Add a New Task</button>
+								<button id="saveBoard">Save Board</button>
+								<button id="newIteration">Create a New Iteration</button>						
+							<?php endif;?>							
+							<?Php
+								//Administrator								
 								if ($_SESSION['user_role'] == 0):
 								?>
 									<form name="frmIterationVal" action="board.php" method="GET" style="display: inline">
@@ -283,19 +287,8 @@
 									?>
 										</select>
 								</form>
-							<?php endif;?>
-						</div>
-
-					<div style="float:right;">
-						<?Php
-							//Administrator
-							if ($_SESSION['user_role'] == 0):
-						?>
-						<button id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>
-						<?php endif;?>
-						<button id="newIteration">Create a New Iteration</button>						
-					</div>
-					
+								<button id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>								
+							<?php endif;?>					
 				</div>	
 										
 				
