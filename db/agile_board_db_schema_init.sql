@@ -27,6 +27,7 @@ CREATE TABLE teams(
 team_id_pk INT NOT NULL AUTO_INCREMENT,
 team_name VARCHAR(30),
 team_description VARCHAR(100),
+iteration_length int(11) NOT NULL DEFAULT '0',
 PRIMARY KEY(team_id_pk)
 );
 
