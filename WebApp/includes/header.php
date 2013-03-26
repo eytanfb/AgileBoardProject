@@ -32,7 +32,6 @@
 			<div id="left">Team: <?php echo $_SESSION['team_name']; ?></div>
 			<div id="center">Agile Board</div>
 			<div id="right">User: <?php echo $_SESSION["user_name"]; ?></div>
-				
 		</div>
 		<?php endif; ?>
 		<div id="main">

@@ -118,7 +118,7 @@
 	  						</li>";
 	var userListItem =  <?php
 							echo '"'. "<option value='-1'>Task Responsible</option>";
-							$queryu = "SELECT users.user_id_pk, users.user_login, users.user_first_name, users.user_last_name FROM team_users LEFT JOIN users ON users.user_id_pk=team_users.tu_user_id_pk_fk WHERE team_users.tu_team_id_pk_fk='{$_SESSION['team_num']}'";
+							$queryu = "SELECT users.user_id_pk, users.user_login, users.user_first_name, users.user_last_name FROM team_users LEFT JOIN users ON users.user_id_pk=team_users.tu_user_id_pk_fk WHERE team_users.tu_team_id_pk_fk='{$_SESSION['team_id']}'";
 							$itemsu = mysql_query($queryu) or die(mysql_error());
 							while ($itemu = mysql_fetch_array($itemsu))
 							{
@@ -186,7 +186,8 @@
 	
 						
 	$(function() {
-		
+				
+		$('#newIteration').button({icons:{primary:"ui-icon-document"}}).click(function(){ location.href='newIteration.php';});
 		$('#addNewTask').button({icons:{primary:"ui-icon-document"}});
 		$('#saveBoard').button({icons:{primary:"ui-icon-disk"}});
 		$("#iterationSelector").combobox();	
@@ -246,7 +247,7 @@
 						
 						<select id="iterationSelector" name="iterationID" style="display:none;">
 							<?php
-								$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_num']}' order by iteration_start_date desc ";
+								$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_id']}' order by iteration_start_date desc ";
 								$sitems = mysql_query($squery) or dire (mysql_error());
 								while ( $sitem = mysql_fetch_array($sitems) )
 								{
@@ -256,6 +257,7 @@
 						</select>
 
 					<div style="float:right">
+						<button id="newIteration">Create a New Iteration</button>						
 						<button id="saveBoard">Save Board</button>
 					</div>
 					
