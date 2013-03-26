@@ -28,14 +28,14 @@
 	.ui-sortable-placeholder { 
 		border: 1px dotted black; 
 		visibility: visible !important; 
-		height: 110px !important; 
+		height: 100px !important; 
 	}
 
   .ui-sortable-placeholder * { visibility: hidden; }
  
 	
 	.portlet { 
-		width:150px;
+		width:170px;
 		height:120px;
 	}
 	
@@ -60,11 +60,17 @@
 		border:0px;
 		color:black;
 		background-color:yellow;
-		width:145px;
+		width:165px;
 		height:20px;
 		margin-left:3px;
 		font-family:"Comic Sans MS";
 		font-size:10pt;
+	}
+	
+	#iterationSelector, #iterationSelector option{
+		background-color:white;		
+		height:23px;	
+		width:450px;
 	}
 	
 /*	for combo*/
@@ -93,7 +99,12 @@
 
 	<?php
 
-		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$_SESSION['iteration_id']}' ";
+		$iterationID =	$_SESSION['iteration_id'];
+		if (isset($_GET['iterationID']))
+		{
+			$iterationID = $_GET['iterationID'];
+		}
+		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$iterationID}' ";
 		$items = mysql_query($query);
 		$data = array();
 		while( $item = mysql_fetch_array($items) )
@@ -190,8 +201,10 @@
 		$('#newIteration').button({icons:{primary:"ui-icon-document"}}).click(function(){ location.href='newIteration.php';});
 		$('#addNewTask').button({icons:{primary:"ui-icon-document"}});
 		$('#saveBoard').button({icons:{primary:"ui-icon-disk"}});
-		$("#iterationSelector").combobox();	
-		$('#iterationSelector_searhtxt').css('width','500px');
+		$('#manageTeam').button({icons:{primary:"ui-icon-wrench"}});
+		
+		// $("#iterationSelector").combobox();	
+		// $('#iterationSelector_searhtxt').css('width','500px');
 	
 			
 		//load board
@@ -238,30 +251,53 @@
 
 </script>
 
-			<div id="content">
+	<div id="content">
 				
-				<div style="clear:both">
-
-						<button id="addNewTask">Add a New Task</button>
-
+				<div style="clear:both;width:100%;">
 						
-						<!-- <select id="iterationSelector" name="iterationID" style="display:none;">
-												<?php
-													$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_id']}' order by iteration_start_date desc ";
-													$sitems = mysql_query($squery) or dire (mysql_error());
-													while ( $sitem = mysql_fetch_array($sitems) )
-													{
-														echo "<option value='{$sitem['iteration_id_pk']}'>  {$sitem['board_name']} > {$sitem['iteration_number']} : {$sitem['iteration_start_date']} - {$sitem['iteration_end_date']}  </option>";
-													}
-												?>
-											</select> -->
+						<div style="float:left;width:70%">
+							
+							<button id="addNewTask">Add a New Task</button>
+							<button id="saveBoard">Save Board</button>
+							<?Php
+								//Administrator
+								if ($_SESSION['user_role'] == 0):
+								?>
+									<form name="frmIterationVal" action="board.php" method="GET" style="display: inline">
+										<select id="iterationSelector" name="iterationID" onchange="document.forms['frmIterationVal'].submit();">
+									<?php
+										$squery= "SELECT * FROM boards LEFT JOIN iterations ON ( iterations.ib_id_fk=boards.board_id_pk ) WHERE iterations.iteration_isArchived = 0";
+										$sitems = mysql_query($squery) or dire (mysql_error());
+										while ( $sitem = mysql_fetch_array($sitems) )
+										{
+											$selectVal =   $sitem['board_name'] . ' - ' . $sitem['iteration_number'] . ' : (' . $sitem['iteration_start_date'] . ' - ' . $sitem['iteration_end_date'] . ' )';
+											if ( isset($_GET['iterationID']) && $_GET['iterationID'] == $sitem['iteration_id_pk'] )
+											{
+												echo "<option value='{$sitem['iteration_id_pk']}' selected>{$selectVal}</option>";
+											}
+											else
+											{
+												echo "<option value='{$sitem['iteration_id_pk']}'>{$selectVal}</option>";												
+											}
+										}
+									?>
+										</select>
+								</form>
+							<?php endif;?>
+						</div>
 
-					<div style="float:right">
-						<button id="saveBoard">Save Board</button>						
+					<div style="float:right;">
+						<?Php
+							//Administrator
+							if ($_SESSION['user_role'] == 0):
+						?>
+						<button id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>
+						<?php endif;?>
 						<button id="newIteration">Create a New Iteration</button>						
 					</div>
 					
-				</div>			
+				</div>	
+										
 				
 				<div class="column ui-widget  ui-corner-all" >
 						<div class='column-header'>To Do</div>

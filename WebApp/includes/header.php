@@ -11,12 +11,6 @@
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-1.9.1.js"></script>
 		<script src="controls/jquery-ui-1-2.10.2.custom/js/jquery-ui-1.10.2.custom.js"></script>
 		<script src="controls/comboBox.js"></script>
-		<script type="text/javascript">
-			
-			$(document).ready(function(){
-				$( "#menu" ).menu(); 
-			});
-		</script>
 		
 		<!-- DataTables plugin -->
 		<style type="text/css" title="currentStyle">
@@ -32,7 +26,7 @@
 			<div id="left">Team: <?php echo $_SESSION['team_name']; ?></div>
 			<div id="center1">Board: <?php echo $_SESSION['board_name']; ?></div>
 			<div id="center2">Iteration: <?php echo $_SESSION['iteration_number'] . ' (' . $_SESSION['iteration_start_date'] . '/' . $_SESSION['iteration_end_date'] . ') '; ?></div>
-			<div id="right">User: <?php echo $_SESSION["user_name"]; ?></div>
+			<div id="right">User: <?php echo $_SESSION["user_name"]; ?> <a id="logout" href="logout.php">(Logout)</a></div>
 		</div>
 		<?php endif; ?>
 		<div id="main">
