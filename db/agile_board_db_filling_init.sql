@@ -7,14 +7,16 @@ INSERT INTO roles VALUES (1, "user");
 INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 0);
 INSERT INTO users VALUES (2, "user", "user", "user", "user", 1);
 INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 1);
-INSERT INTO users VALUES (4, "ramtin", "ramtin", "ramtin", "ramtin", 2);
-INSERT INTO users VALUES (5, "abhishek", "abhishek", "abhishek", "abhishek", 2);
+INSERT INTO users VALUES (4, "ramtin", "ramtin", "ramtin", "ramtin", 1);
+INSERT INTO users VALUES (5, "abhishek", "abhishek", "abhishek", "abhishek", 1);
 
 INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project", 1);
 INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project", 1);
 
 INSERT INTO team_users VALUES (2, 1);
 INSERT INTO team_users VALUES (3, 1);
+INSERT INTO team_users VALUES (4, 2);
+INSERT INTO team_users VALUES (5, 2);
 
 
 INSERT INTO statuses VALUES ("TODO", "TODO");
@@ -24,9 +26,14 @@ INSERT INTO statuses VALUES ("DONE", "DONE");
 INSERT INTO boards VALUES (1, 1, "Team 1, agile board", 0);
 INSERT INTO boards VALUES (2, 2, "Team 2 board", 0);
 
-INSERT INTO iterations VALUES (1,'2013-3-03', '2013-3-10', 1, 1, 1);
-INSERT INTO iterations VALUES (2,'2013-3-11', '2013-3-18', 1, 1, 1);
-INSERT INTO iterations VALUES (3,'2013-3-19', '2013-3-26', 1, 0, 1);
+INSERT INTO iterations VALUES (1,'2013-3-03', '2013-3-10', 1, 1, 7);
+INSERT INTO iterations VALUES (2,'2013-3-11', '2013-3-18', 1, 1, 7);
+INSERT INTO iterations VALUES (3,'2013-3-19', '2013-3-26', 1, 0, 7);
+
+INSERT INTO iterations VALUES (4,'2013-3-04', '2013-3-11', 2, 1, 7);
+INSERT INTO iterations VALUES (5,'2013-3-13', '2013-3-18', 2, 1, 7);
+INSERT INTO iterations VALUES (6,'2013-3-20', '2013-3-27', 2, 0, 7);
+
 
 INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 3, 3, 15, 3, "TODO");
 
