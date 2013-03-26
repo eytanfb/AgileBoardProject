@@ -24,7 +24,7 @@ INSERT INTO iterations VALUES (1,'2013-3-03', '2013-3-10', 1, 1, 1);
 INSERT INTO iterations VALUES (2,'2013-3-11', '2013-3-18', 1, 1, 1);
 INSERT INTO iterations VALUES (3,'2013-3-19', '2013-3-26', 1, 0, 1);
 
-INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 1, 1, 5, 3, "TODO");
+INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 3, 3, 15, 3, "TODO");
 
 /*
 
