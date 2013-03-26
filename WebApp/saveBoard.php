@@ -9,14 +9,14 @@
 	 	if ($_POST['task_id_pk'] == -1)
 		{
 			//New
-			$query = "INSERT INTO tasks (task_name, task_description, task_creator_id_fk, taks_responsible_person_fk, task_work_estimation, ts_id_fk) VALUES ('{$_POST['task_name']}', '{$_POST['task_description']}', '{$_POST['task_creator_id_fk']}', '{$_POST['taks_responsible_person_fk']}', '{$_POST['task_work_estimation']}', '{$_POST['ts_id_fk']}')";
+			$query = "INSERT INTO tasks (task_name, task_description, task_creator_id_fk, taks_responsible_person_fk, task_work_estimation, ts_id_fk, ti_id_fk) VALUES ('{$_POST['task_name']}', '{$_POST['task_description']}', '{$_POST['task_creator_id_fk']}', '{$_POST['taks_responsible_person_fk']}', '{$_POST['task_work_estimation']}', '{$_POST['ts_id_fk']}', '{$_SESSION['iteration_id']}')";
 			mysql_query($query);
 			echo mysql_insert_id();
 		}
 		else
 		{
 			//Update
-			$query = "UPDATE tasks SET task_name='{$_POST['task_name']}', task_description='{$_POST['task_description']}', task_creator_id_fk='{$_POST['task_creator_id_fk']}', taks_responsible_person_fk='{$_POST['taks_responsible_person_fk']}', task_work_estimation='{$_POST['task_work_estimation']}', ts_id_fk= '{$_POST['ts_id_fk']}' WHERE  task_id_pk='{$_POST['task_id_pk']}'";
+			$query = "UPDATE tasks SET task_name='{$_POST['task_name']}', task_description='{$_POST['task_description']}', task_creator_id_fk='{$_POST['task_creator_id_fk']}', taks_responsible_person_fk='{$_POST['taks_responsible_person_fk']}', task_work_estimation='{$_POST['task_work_estimation']}', ts_id_fk= '{$_POST['ts_id_fk']}', ti_id_fk='{$_SESSION['iteration_id']}' WHERE  task_id_pk='{$_POST['task_id_pk']}'";
 			mysql_query($query);
 			echo $_POST['task_id_pk'];
 		}

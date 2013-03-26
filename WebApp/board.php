@@ -93,7 +93,7 @@
 
 	<?php
 
-		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks";
+		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$_SESSION['iteration_id']}' ";
 		$items = mysql_query($query);
 		$data = array();
 		while( $item = mysql_fetch_array($items) )
@@ -245,20 +245,20 @@
 						<button id="addNewTask">Add a New Task</button>
 
 						
-						<select id="iterationSelector" name="iterationID" style="display:none;">
-							<?php
-								$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_id']}' order by iteration_start_date desc ";
-								$sitems = mysql_query($squery) or dire (mysql_error());
-								while ( $sitem = mysql_fetch_array($sitems) )
-								{
-									echo "<option value='{$sitem['iteration_id_pk']}'>  {$sitem['board_name']} > {$sitem['iteration_number']} : {$sitem['iteration_start_date']} - {$sitem['iteration_end_date']}  </option>";
-								}
-							?>
-						</select>
+						<!-- <select id="iterationSelector" name="iterationID" style="display:none;">
+												<?php
+													$squery= "SELECT b.board_name, s.iteration_id_pk, s.iteration_number, s.iteration_start_date, s.iteration_end_date FROM iterations as s LEFT JOIN boards as b ON s.ib_id_fk=b.board_id_pk WHERE b.bt_id_fk= '{$_SESSION['team_id']}' order by iteration_start_date desc ";
+													$sitems = mysql_query($squery) or dire (mysql_error());
+													while ( $sitem = mysql_fetch_array($sitems) )
+													{
+														echo "<option value='{$sitem['iteration_id_pk']}'>  {$sitem['board_name']} > {$sitem['iteration_number']} : {$sitem['iteration_start_date']} - {$sitem['iteration_end_date']}  </option>";
+													}
+												?>
+											</select> -->
 
 					<div style="float:right">
+						<button id="saveBoard">Save Board</button>						
 						<button id="newIteration">Create a New Iteration</button>						
-						<button id="saveBoard">Save Board</button>
 					</div>
 					
 				</div>			

@@ -18,26 +18,33 @@
 #header #left
 {
 	float:left;
-	width: 30%;
+	width: 25%;
 	text-align:left;	
 	color:yellow;
 	font-weight:bold;
 }
 
-#header #center
+#header #center1
 {
 	float:left;
 	text-align:center;
-	width:40%;
+	width:25%;
+	color:yellow;
+	font-weight:bold;
+}
+#header #center2
+{
+	float:left;
+	text-align:center;
+	width:25%;
 	color:yellow;
 	font-weight:bold;
 }
 
-
 #header #right
 {
 	float:left;
-	width: 30%;
+	width: 25%;
 	text-align:right;
 	color:yellow;
 	font-weight:bold;

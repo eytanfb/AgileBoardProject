@@ -30,7 +30,8 @@
 		<div id="header" class="ui-widget  ui-corner-all">
 			
 			<div id="left">Team: <?php echo $_SESSION['team_name']; ?></div>
-			<div id="center">Agile Board</div>
+			<div id="center1">Board: <?php echo $_SESSION['board_name']; ?></div>
+			<div id="center2">Iteration: <?php echo $_SESSION['iteration_number'] . ' (' . $_SESSION['iteration_start_date'] . '/' . $_SESSION['iteration_end_date'] . ') '; ?></div>
 			<div id="right">User: <?php echo $_SESSION["user_name"]; ?></div>
 		</div>
 		<?php endif; ?>
