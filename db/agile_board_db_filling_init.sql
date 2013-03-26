@@ -21,6 +21,8 @@ INSERT INTO statuses VALUES ("DONE", "DONE");
 INSERT INTO boards VALUES (0, 1, "Team 1, agile board", "false");
 
 INSERT INTO iterations VALUES (0,'2013-3-03', '2013-3-10', 0, "false", 1);
+INSERT INTO iterations VALUES (1,'2013-3-11', '2013-3-18', 0, "false", 1);
+INSERT INTO iterations VALUES (2,'2013-3-19', '2013-3-26', 0, "false", 1);
 
 INSERT INTO tasks VALUES (0, "Task1: design DB", "design ER schema", 1, 1, 3, 0, "TODO");
 
