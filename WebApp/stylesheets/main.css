@@ -5,11 +5,14 @@
 
 #header
 {
-	width:100%;
+	width:98%;
 	background-color:red;
 	border: 1px solid black;
 	height:40px;
 	margin:2px;
+	padding:5px;
+	font-family:"Comic Sans MS";
+	font-size:18pt;
 }
 
 #header #left

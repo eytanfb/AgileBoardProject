@@ -132,8 +132,11 @@
 
 	function drawBoard()
 	{
-		for each (task in boardData)
+
+		// for each (task in boardData)
+		for (var i=0; i<boardData.length; i++)
 		{
+			var task = boardData[i];
 			//draw task;
 			var t = taskTemplate;
 			t = t.replace('[taskIdVal]',task['task_id_pk']);

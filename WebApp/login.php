@@ -4,7 +4,7 @@
 
 	if (is_loggedin())
 	{
-		header("Location: index.php");
+		header("Location: board.php");
 	}
 	
 	if (isset($_POST['submit']))
@@ -32,7 +32,7 @@
 				$team = mysql_fetch_array($team_list);
 				set_session($user,$team);
 				//redirect authenticated user to main page
-				header("Location: index.php");	
+				header("Location: board.php");	
 			}
 			else
 			{

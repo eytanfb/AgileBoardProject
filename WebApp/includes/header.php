@@ -29,9 +29,9 @@
 		<?php if ( strstr(strtolower($_SERVER['PHP_SELF']),'login.php') != 'login.php' ): ?>
 		<div id="header" class="ui-widget  ui-corner-all">
 			
-			<div id="left"><?php echo $_SESSION['team_name']; ?></div>
+			<div id="left">Team: <?php echo $_SESSION['team_name']; ?></div>
 			<div id="center">Agile Board</div>
-			<div id="right"><?php echo $_SESSION["user_name"]; ?></div>
+			<div id="right">User: <?php echo $_SESSION["user_name"]; ?></div>
 				
 		</div>
 		<?php endif; ?>
