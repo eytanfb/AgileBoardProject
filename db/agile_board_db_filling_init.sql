@@ -8,8 +8,8 @@ INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 0);
 INSERT INTO users VALUES (2, "user", "user", "user", "user", 1);
 INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 1);
 
-INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project");
-INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project");
+INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project", 1);
+INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project", 1);
 
 INSERT INTO team_users VALUES (2, 1);
 INSERT INTO team_users VALUES (3, 1);
