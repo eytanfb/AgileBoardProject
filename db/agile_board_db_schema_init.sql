@@ -11,7 +11,7 @@ PRIMARY KEY(role_id_pk)
 
 /*Table to store user details */
 CREATE TABLE users(
-user_id_pk INT,
+user_id_pk INT NOT NULL AUTO_INCREMENT,
 user_login VARCHAR(40),
 user_first_name VARCHAR(40),
 user_last_name VARCHAR(40),
@@ -101,7 +101,7 @@ PRIMARY KEY(change_type_id_pk)
 
 /*Table to store change logs*/
 CREATE TABLE task_action_log(
-tal_id_pk INT,
+tal_id_pk INT NOT NULL AUTO_INCREMENT,
 tal_user_id_fk INT,
 tal_date DATE,
 tal_change_type_id_fk INT,

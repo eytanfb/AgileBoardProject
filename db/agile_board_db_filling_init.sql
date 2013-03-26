@@ -4,15 +4,15 @@ USE agile_board;
 INSERT INTO roles VALUES (0, "administrator");
 INSERT INTO roles VALUES (1, "user");
 
-INSERT INTO users VALUES (0, "admin", "admin", "admin", "admin", 0);
-INSERT INTO users VALUES (1, "user", "user", "user", "user", 1);
-INSERT INTO users VALUES (2, "alex", "alexey", "tregubov", "alexey", 1);
+INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 0);
+INSERT INTO users VALUES (2, "user", "user", "user", "user", 1);
+INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 1);
 
 INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project");
 INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project");
 
-INSERT INTO team_users VALUES (1, 1);
 INSERT INTO team_users VALUES (2, 1);
+INSERT INTO team_users VALUES (3, 1);
 
 INSERT INTO statuses VALUES ("TODO", "TODO");
 INSERT INTO statuses VALUES ("DOING", "DOING");
@@ -24,7 +24,7 @@ INSERT INTO iterations VALUES (1,'2013-3-03', '2013-3-10', 1, 1, 1);
 INSERT INTO iterations VALUES (2,'2013-3-11', '2013-3-18', 1, 1, 1);
 INSERT INTO iterations VALUES (3,'2013-3-19', '2013-3-26', 1, 0, 1);
 
-INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 1, 1, 3, 1, "TODO");
+INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 1, 2, 3, 1, "TODO");
 
 /*
 
