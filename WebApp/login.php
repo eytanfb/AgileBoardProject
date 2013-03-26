@@ -19,7 +19,7 @@
 		}
 		else
 		{
-			$query= "SELECT * FROM users JOIN roles ON ( users.user_role_fk = roles.role_id_pk ) JOIN team_users ON ( team_users.tu_user_id_pk_fk = users.user_id_pk )  WHERE ( users.user_login = '{$username}') AND ( users.user_password = '{$password}' ) LIMIT 1";
+			$query= "SELECT * FROM users JOIN roles ON ( users.user_role_fk = roles.role_id_pk ) LEFT JOIN team_users ON ( team_users.tu_user_id_pk_fk = users.user_id_pk )  WHERE ( users.user_login = '{$username}') AND ( users.user_password = '{$password}' ) LIMIT 1";
 			$result_set = mysql_query($query, $connection);
 
 			if (mysql_num_rows($result_set)  == 1 )
