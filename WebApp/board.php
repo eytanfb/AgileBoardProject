@@ -99,12 +99,11 @@
 
 	<?php
 
-		$iterationID =	$_SESSION['iteration_id'];
-		if (isset($_GET['iterationID']))
+		if (isset($_GET['iterationID']) && $_GET['iterationID'] != '-1')
 		{
-			$iterationID = $_GET['iterationID'];
+			update_session_foradmin($_GET['iterationID']);
 		}
-		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$iterationID}' ";
+		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$_SESSION['iteration_id']}' ";
 		$items = mysql_query($query);
 		$data = array();
 		while( $item = mysql_fetch_array($items) )
@@ -265,11 +264,12 @@
 								?>
 									<form name="frmIterationVal" action="board.php" method="GET" style="display: inline">
 										<select id="iterationSelector" name="iterationID" onchange="document.forms['frmIterationVal'].submit();">
+											<option value='-1'>Please select the board with the latest iteration ...</option>
 									<?php
 										$squery= "SELECT * FROM boards LEFT JOIN iterations ON ( iterations.ib_id_fk=boards.board_id_pk ) WHERE iterations.iteration_isArchived = 0";
 										$sitems = mysql_query($squery) or dire (mysql_error());
 										while ( $sitem = mysql_fetch_array($sitems) )
-										{
+										{											
 											$selectVal =   $sitem['board_name'] . ' - ' . $sitem['iteration_number'] . ' : (' . $sitem['iteration_start_date'] . ' - ' . $sitem['iteration_end_date'] . ' )';
 											if ( isset($_GET['iterationID']) && $_GET['iterationID'] == $sitem['iteration_id_pk'] )
 											{
