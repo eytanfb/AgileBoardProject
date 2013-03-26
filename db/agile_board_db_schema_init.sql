@@ -45,10 +45,10 @@ FOREIGN KEY (tu_team_id_pk_fk) REFERENCES teams(team_id_pk)
 
 /*Table to store board details*/
 CREATE TABLE boards(
-board_id_pk INT,
+board_id_pk INT NOT NULL AUTO_INCREMENT,
 bt_id_fk INT,
 board_name VARCHAR(20),
-board_isArchived CHAR,
+board_isArchived BOOLEAN,
 PRIMARY KEY(board_id_pk),
 FOREIGN KEY(bt_id_fk) REFERENCES teams(team_id_pk)
 );
@@ -56,11 +56,11 @@ FOREIGN KEY(bt_id_fk) REFERENCES teams(team_id_pk)
 
 /*Table to store iteration details*/
 CREATE TABLE iterations(
-iteration_id_pk INT,
+iteration_id_pk INT NOT NULL AUTO_INCREMENT,
 iteration_start_date DATE,
 iteration_end_date DATE,
 ib_id_fk INT,
-iteration_isArchived CHAR,
+iteration_isArchived BOOLEAN,
 iteration_number INT,
 PRIMARY KEY(iteration_id_pk),
 FOREIGN KEY(ib_id_fk) REFERENCES boards(board_id_pk)
