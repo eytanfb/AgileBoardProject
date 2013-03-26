@@ -18,13 +18,13 @@ INSERT INTO statuses VALUES ("TODO", "TODO");
 INSERT INTO statuses VALUES ("DOING", "DOING");
 INSERT INTO statuses VALUES ("DONE", "DONE");
 
-INSERT INTO boards VALUES (0, 1, "Team 1, agile board", 0);
+INSERT INTO boards VALUES (1, 1, "Team 1, agile board", 0);
 
 INSERT INTO iterations VALUES (1,'2013-3-03', '2013-3-10', 1, 1, 1);
 INSERT INTO iterations VALUES (2,'2013-3-11', '2013-3-18', 1, 1, 1);
 INSERT INTO iterations VALUES (3,'2013-3-19', '2013-3-26', 1, 0, 1);
 
-INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 1, 2, 3, 1, "TODO");
+INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 1, 1, 5, 3, "TODO");
 
 /*
 
