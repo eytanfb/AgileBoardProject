@@ -18,6 +18,22 @@
 		$_SESSION['iteration_number'] = $user['iteration_number'];								
 	}
 	
+	function update_session_foradmin($iterationID)
+	{
+		$iquery= "SELECT * FROM boards LEFT JOIN iterations ON ( iterations.ib_id_fk=boards.board_id_pk ) LEFT JOIN teams ON (boards.bt_id_fk =teams.team_id_pk) WHERE iterations.iteration_id_pk='{$iterationID}' LIMIT 1";
+		$iitems = mysql_query($iquery);
+		$iquery = mysql_fetch_array($iitems);
+		
+		$_SESSION['team_id'] = $iquery['team_id_pk'];
+		$_SESSION['team_name'] = $iquery['team_name'];
+		$_SESSION['board_id'] = $iquery['board_id_pk'];
+		$_SESSION['board_name'] = $iquery['board_name'];
+		$_SESSION['iteration_id'] = $iquery['iteration_id_pk'];
+		$_SESSION['iteration_start_date'] = $iquery['iteration_start_date'];		
+		$_SESSION['iteration_end_date'] = $iquery['iteration_end_date'];				
+		$_SESSION['iteration_number'] = $iquery['iteration_number'];												
+	}
+	
 	function is_loggedin()
 	{
 		if ( !isset($_SESSION['username']) )
