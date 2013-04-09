@@ -1,0 +1,25 @@
+/* Login Page */
+
+#login-hero{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+input[type="text"], input[type="password"]{
+    height: 30px;
+}
+
+/* Board Page Navbar */
+ul.nav li{
+    font-size: large;
+}
+
+ul.nav li:hover{
+    background: #E8E8E8;
+}
+
+li:hover i[class^="icon-"]{ 
+    font-size:20px; 
+}

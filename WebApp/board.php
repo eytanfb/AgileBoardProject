@@ -257,10 +257,20 @@
 							<?Php
 								//User
 								if ($_SESSION['user_role'] == 1):
-								?>							
-								<button id="addNewTask">Add a New Task</button>
-								<button id="saveBoard">Save Board</button>
-								<button id="newIteration">Create a New Iteration</button>						
+								?>
+                <div class="navbar">
+                  <div class="navbar-inner">
+                    <a class="brand" href="#">Agile Board</a> <!-- Add Link to actual board -->
+                    <ul class="nav">
+                      <li id="addNewTask"><a href="#"><i class="icon-pencil"></i>Add a New Task</a></li>
+                      <li id="saveBoard"><a href="#"><i class="icon-save"></i>Save Board</a></li>
+                      <li id="newIteration"><a href="#"><i class="icon-calendar"></i>Create a New Iteration</a></li>
+                    </ul>
+                    <!-- <button id="addNewTask">Add a New Task</button>
+                    <button id="saveBoard">Save Board</button>
+                    <button id="newIteration">Create a New Iteration</button> -->
+                  </div>
+                </div>
 							<?php endif;?>							
 							<?Php
 								//Administrator								

@@ -44,24 +44,55 @@
 
 ?>
 <?php include("includes/header.php"); ?>
-<form action="login.php" method="post">
-	<table align="center">
-		<tr>
-			<td>username:</td>
-			<td><input name="username" type="text" maxlength="20" /></td>
-		</tr>
-		<tr>
-			<td>password:</td>
-			<td><input name="password" type="password" maxlength="20" /></td>
-		</tr>
-		<tr>
-			<td colspan="2"><input type="submit" name="submit" value="login" /></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<?php if(!empty($message)) { echo "<p class='errorMessage'>". $message ."</p>"; } ?>
-			</td>
-		</td>
-	</table>
-</form>
+
+<div class="hero-unit center" id="login-hero">
+  <form action="login.php" method="post">
+    <fieldset align="center">
+      <div id="legend">
+        <legend>Login to Your Agile Board</legend>
+      </div>
+      <div class="control-group">
+          <!-- Username -->
+          <!-- <label class="control-label"  for="username">Username</label> -->
+          <div class="controls">
+            <input type="text" id="username" name="username" maxlength="20" placeholder="Username" class="input-xlarge">
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <!-- Password-->
+          <!-- <label class="control-label" for="password">Password</label> -->
+          <div class="controls">
+            <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge">
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <input type="submit" name="submit" value="Login" class="btn btn-success" />
+          </div>
+        </div>
+    </fieldset>
+  </form>
+</div>
 <?php include('includes/footer.php'); ?>
+
+<!-- <table align="center">
+  <tr>
+    <td>username:</td>
+    <td><input name="username" type="text" maxlength="20" /></td>
+  </tr>
+  <tr>
+    <td>password:</td>
+    <td><input name="password" type="password" maxlength="20" /></td>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="submit" name="submit" value="login" /></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <?php if(!empty($message)) { echo "<p class='errorMessage'>". $message ."</p>"; } ?>
+    </td>
+  </td>
+</table> -->

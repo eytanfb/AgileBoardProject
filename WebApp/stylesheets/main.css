@@ -50,6 +50,10 @@
 	font-weight:bold;
 }
 
+.navbar-inner{
+    background-color:red;
+}
+
 #logout, #logout:visited{
 	font-size:15pt;
 	color:maroon;
