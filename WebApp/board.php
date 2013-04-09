@@ -297,7 +297,7 @@
 									?>
 										</select>
 								</form>
-								<button id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>								
+								<button class="btn btn-primary adminButton" id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>								
 							<?php endif;?>					
 				</div>	
 										

@@ -30,8 +30,8 @@
 
 			<div id="content">
 				<div style="width:800px;margin: 30px auto;">
-					<button id="btnHome" type="button" onclick="location.href='board.php'">Back to Board Page</button>										
-					<button id="btnAdd" type="button" onclick="location.href='teamEdit.php?id=-1'">Add A New Team</button>					
+					<button id="btnHome" class="btn btn-primary adminButton" type="button" onclick="location.href='board.php'">Back to Board Page</button>										
+					<button id="btnAdd" class="btn btn-primary adminButton" type="button" onclick="location.href='teamEdit.php?id=-1'">Add A New Team</button>					
 					<table id="gridTeams">
 						<thead>
 							<tr>

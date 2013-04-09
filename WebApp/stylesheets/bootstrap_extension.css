@@ -11,7 +11,7 @@ input[type="text"], input[type="password"]{
     height: 30px;
 }
 
-/* Board Page Navbar */
+/* Board Page Navbar for Users */
 .navbar-inner{
     background-color: #C41E3A;
 }
@@ -32,4 +32,18 @@ li:hover i[class^="icon-"]{
 a#discard{
     color: white;
     font-size: 16px;
+}
+
+/* Board page for Admin */
+button.adminButton{
+    background: #C41E3A;
+    color: #FFD700;
+}
+
+button.adminButton:hover{
+    background: #DC143C;
+}
+
+#iterationSelector{
+    height: 30px;
 }
