@@ -23,3 +23,9 @@ ul.nav li:hover{
 li:hover i[class^="icon-"]{ 
     font-size:20px; 
 }
+
+/* New Iteration Page */
+a#discard{
+    color: white;
+    font-size: 16px;
+}

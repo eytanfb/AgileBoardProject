@@ -121,8 +121,8 @@
 							<div>After submit information for updating session you should login again!</div>
 						</p>
 						<p>
-							<input id="btnSubmit" type="submit" name="insert" value="Submit" />							
-							<a id="discard" href="board.php">Cancel</a>						
+							<input id="btnSubmit" type="submit" class="btn btn-success" name="insert" value="Submit" />							              
+              <a id="discard" class="btn btn-danger" href="board.php">Cancel</a>            
 						</p>
 					</fieldset>					
 				</form>
