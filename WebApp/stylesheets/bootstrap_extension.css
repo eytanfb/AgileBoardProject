@@ -12,11 +12,15 @@ input[type="text"], input[type="password"]{
 }
 
 /* Board Page Navbar */
+.navbar-inner{
+    background-color: #C41E3A;
+}
+
 ul.nav li{
     font-size: large;
 }
 
-ul.nav li:hover{
+ul.nav li:hover, a.brand:hover{
     background: #E8E8E8;
 }
 

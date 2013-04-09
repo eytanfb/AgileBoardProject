@@ -6,7 +6,7 @@
 #header
 {
 	width:99%;
-	background-color:red;
+	background-color:#C41E3A;
 	border: 1px solid black;
 	height:40px;
 	margin:2px;
@@ -20,7 +20,7 @@
 	float:left;
 	width: 25%;
 	text-align:left;	
-	color:yellow;
+	color:#FFD700;
 	font-weight:bold;
 }
 
@@ -29,7 +29,7 @@
 	float:left;
 	text-align:center;
 	width:25%;
-	color:yellow;
+	color:#FFD700;
 	font-weight:bold;
 }
 #header #center2
@@ -37,7 +37,7 @@
 	float:left;
 	text-align:center;
 	width:25%;
-	color:yellow;
+	color:#FFD700;
 	font-weight:bold;
 }
 
@@ -46,12 +46,8 @@
 	float:left;
 	width: 25%;
 	text-align:right;
-	color:yellow;
+	color:#FFD700;
 	font-weight:bold;
-}
-
-.navbar-inner{
-    background-color:red;
 }
 
 #logout, #logout:visited{

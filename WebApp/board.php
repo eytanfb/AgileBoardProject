@@ -260,7 +260,7 @@
 								?>
                 <div class="navbar">
                   <div class="navbar-inner">
-                    <a class="brand" href="#">Agile Board</a> <!-- Add Link to actual board -->
+                    <a class="brand" href="board.php"><i class="icon-table"></i>Agile Board</a> <!-- Add Link to actual board -->
                     <ul class="nav">
                       <li id="addNewTask"><a href="#"><i class="icon-pencil"></i>Add a New Task</a></li>
                       <li id="saveBoard"><a href="#"><i class="icon-save"></i>Save Board</a></li>
