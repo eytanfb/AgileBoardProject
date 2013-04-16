@@ -3,6 +3,6 @@
 	define('SERVER','localhost');
 	define('USERNAME','root');
 	define('PASSWORD','root');
-	define('DBNAME','agile_board');
+	define('DBNAME','agileboard');
 	
 ?>

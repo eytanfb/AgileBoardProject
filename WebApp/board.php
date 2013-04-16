@@ -179,7 +179,7 @@
 			"task_id_pk" : $(this).find('#taskId').val(),
 			"task_name"  : $(this).find('#taskName').val(),
 		    "task_description" :  $(this).find('#taskDesc').val(),
-			"task_creator_id_fk" : <?php  echo $_SESSION['user_id'] ?>,
+			"task_creator_id_fk" : <?php  echo $_SESSION['UserId'] ?>,
 			"taks_responsible_person_fk" : $(this).find('#taskReponsibleUser').find(':selected').val(),
 			"task_work_estimation" : $(this).find('#taskEstimate').val(),		
 			"ts_id_fk":  $(this).parent().attr('id').toUpperCase()				
@@ -256,7 +256,7 @@
 						
 							<?Php
 								//User
-								if ($_SESSION['user_role'] == 1):
+								if ($_SESSION['user_role'] == 0):
 								?>
                 <div class="navbar">
                   <div class="navbar-inner">
@@ -274,7 +274,7 @@
 							<?php endif;?>							
 							<?Php
 								//Administrator								
-								if ($_SESSION['user_role'] == 0):
+								if ($_SESSION['user_role'] == 1):
 								?>
 									<form name="frmIterationVal" action="board.php" method="GET" style="display: inline">
 										<select id="iterationSelector" name="iterationID" onchange="document.forms['frmIterationVal'].submit();">

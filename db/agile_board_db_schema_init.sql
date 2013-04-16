@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS agile_board;
-USE agile_board;
+CREATE DATABASE IF NOT EXISTS agileboard;
+USE agileboard;
 
 /*Table to store different types of roles in the system (like user, admin etc)*/
 CREATE TABLE roles(
@@ -11,7 +11,7 @@ PRIMARY KEY(role_id_pk)
 
 /*Table to store user details */
 CREATE TABLE users(
-user_id_pk INT NOT NULL AUTO_INCREMENT,
+user_id_pk VARCHAR(20) NOT NULL,
 user_login VARCHAR(40),
 user_first_name VARCHAR(40),
 user_last_name VARCHAR(40),
@@ -36,7 +36,7 @@ PRIMARY KEY(team_id_pk)
 
 /*Table to store the mapping of users to teams*/
 CREATE TABLE team_users(
-tu_user_id_pk_fk INT,
+tu_user_id_pk_fk VARCHAR(20),
 tu_team_id_pk_fk INT,
 PRIMARY KEY(tu_user_id_pk_fk, tu_team_id_pk_fk),
 FOREIGN KEY (tu_user_id_pk_fk) REFERENCES users(user_id_pk),
@@ -81,8 +81,8 @@ CREATE TABLE tasks(
 task_id_pk INT NOT NULL AUTO_INCREMENT,
 task_name VARCHAR(40),
 task_description VARCHAR(100),
-task_creator_id_fk INT,
-taks_responsible_person_fk INT,
+task_creator_id_fk VARCHAR(20),
+taks_responsible_person_fk VARCHAR(20),
 task_work_estimation INT,
 ti_id_fk INT,
 ts_id_fk VARCHAR(20),
@@ -103,7 +103,7 @@ PRIMARY KEY(change_type_id_pk)
 /*Table to store change logs*/
 CREATE TABLE task_action_log(
 tal_id_pk INT NOT NULL AUTO_INCREMENT,
-tal_user_id_fk INT,
+tal_user_id_fk VARCHAR(20),
 tal_date DATE,
 tal_change_type_id_fk INT,
 tal_task_id_fk INT,

@@ -1,14 +1,13 @@
-CREATE DATABASE IF NOT EXISTS agile_board;
-USE agile_board;
+USE agileboard;
 
-INSERT INTO roles VALUES (0, "administrator");
-INSERT INTO roles VALUES (1, "user");
+INSERT INTO roles VALUES (0, "user");
+INSERT INTO roles VALUES (1, "administrator");
 
-INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 0);
-INSERT INTO users VALUES (2, "user", "user", "user", "user", 1);
-INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 1);
-INSERT INTO users VALUES (4, "ramtin", "ramtin", "ramtin", "ramtin", 1);
-INSERT INTO users VALUES (5, "abhishek", "abhishek", "abhishek", "abhishek", 1);
+INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 1);
+INSERT INTO users VALUES (2, "user", "user", "user", "user", 0);
+INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 0);
+INSERT INTO users VALUES (4, "ramtin", "ramtin", "ramtin", "ramtin", 0);
+INSERT INTO users VALUES (5, "abhishek", "abhishek", "abhishek", "abhishek", 0);
 
 INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project", 1);
 INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project", 1);
