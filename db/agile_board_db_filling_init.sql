@@ -50,6 +50,7 @@ INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", "ramtin", "
 insert into change_types values(1, 'create_task');
 insert into change_types values(2, 'update_task');
 insert into change_types values(3, 'delete_task');
+insert into change_types values(4, 'task_status_change');
 
 /*
 
