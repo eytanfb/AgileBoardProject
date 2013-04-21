@@ -111,6 +111,6 @@ tal_old_attribute_value VARCHAR(200),
 tal_new_attribute_value VARCHAR(200),
 PRIMARY KEY(tal_id_pk),
 FOREIGN KEY (tal_user_id_fk) REFERENCES users(user_id_pk),
-FOREIGN KEY (tal_change_type_id_fk) REFERENCES change_types(change_type_id_pk),
+FOREIGN KEY (tal_change_type_id_fk) REFERENCES change_types(change_type_id_pk)
 );
 
