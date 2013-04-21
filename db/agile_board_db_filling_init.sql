@@ -8,6 +8,7 @@ INSERT INTO users VALUES ("user", "user", "user", "user", "user", 0);
 INSERT INTO users VALUES ("alex", "alex", "alexey", "tregubov", "alexey", 0);
 INSERT INTO users VALUES ("ramtin", "ramtin", "ramtin", "ramtin", "ramtin", 0);
 INSERT INTO users VALUES ("abhishek", "abhishek", "abhishek", "abhishek", "abhishek", 0);
+INSERT INTO users VALUES ("eytan", "eytan", "Eytan", "Anjel", "eytan", 0);
 INSERT INTO users VALUES ("linus", "linus", "Linus", "Torvalds", "linus", 0);
 INSERT INTO users VALUES ("kirill", "kirill", "Kirill", "Golodets", "kirill", 0);
 INSERT INTO users VALUES ("richard", "richard", "Richard", "Stallman", "richard", 0);
@@ -45,6 +46,10 @@ INSERT INTO iterations VALUES (6,'2013-3-20', '2013-3-27', 2, 0, 7);
 
 
 INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", "ramtin", "ramtin", 15, 6, "TODO");
+
+insert into change_types values(1, 'create_task');
+insert into change_types values(2, 'update_task');
+insert into change_types values(3, 'delete_task');
 
 /*
 
