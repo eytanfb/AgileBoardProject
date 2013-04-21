@@ -24,7 +24,7 @@
 			mysql_query($query, $connection) or die(mysql_error());
 
 			foreach ($_POST['member_ids'] as $v) {
-			    $query = "REPLACE INTO team_users (tu_user_id_pk_fk, tu_team_id_pk_fk) VALUES({$v}, {$_POST['id']});";
+			    $query = "REPLACE INTO team_users (tu_user_id_pk_fk, tu_team_id_pk_fk) VALUES('{$v}', {$_POST['id']});";
 			    mysql_query($query, $connection) or die(mysql_error());
 			}
 			
@@ -50,7 +50,7 @@
 			$team_id = $item['team_id'];
 
 			foreach ($_POST['member_ids'] as $v) {
-			    $query = "REPLACE INTO team_users (tu_user_id_pk_fk, tu_team_id_pk_fk) VALUES({$v}, {$team_id});";
+			    $query = "REPLACE INTO team_users (tu_user_id_pk_fk, tu_team_id_pk_fk) VALUES('{$v}', {$team_id});";
 			    mysql_query($query, $connection) or die(mysql_error());
 			}
 			
