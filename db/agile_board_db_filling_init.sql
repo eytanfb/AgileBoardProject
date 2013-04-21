@@ -3,19 +3,29 @@ USE agileboard;
 INSERT INTO roles VALUES (0, "user");
 INSERT INTO roles VALUES (1, "administrator");
 
-INSERT INTO users VALUES (1, "admin", "admin", "admin", "admin", 1);
-INSERT INTO users VALUES (2, "user", "user", "user", "user", 0);
-INSERT INTO users VALUES (3, "alex", "alexey", "tregubov", "alexey", 0);
-INSERT INTO users VALUES (4, "ramtin", "ramtin", "ramtin", "ramtin", 0);
-INSERT INTO users VALUES (5, "abhishek", "abhishek", "abhishek", "abhishek", 0);
+INSERT INTO users VALUES ("admin", "admin", "admin", "admin", "admin", 1);
+INSERT INTO users VALUES ("user", "user", "user", "user", "user", 0);
+INSERT INTO users VALUES ("alex", "alex", "alexey", "tregubov", "alexey", 0);
+INSERT INTO users VALUES ("ramtin", "ramtin", "ramtin", "ramtin", "ramtin", 0);
+INSERT INTO users VALUES ("abhishek", "abhishek", "abhishek", "abhishek", "abhishek", 0);
+INSERT INTO users VALUES ("linus", "linus", "Linus", "Torvalds", "linus", 0);
+INSERT INTO users VALUES ("kirill", "kirill", "Kirill", "Golodets", "kirill", 0);
+INSERT INTO users VALUES ("richard", "richard", "Richard", "Stallman", "richard", 0);
+INSERT INTO users VALUES ("doc", "doc", "Emmett", "Brown", "doc", 0);
+INSERT INTO users VALUES ("marty", "marty", "Marty", "McFly", "marty", 0);
+INSERT INTO users VALUES ("nicolaus", "nicolaus", "Nicolaus", "Copernicus", "nicolaus", 0);
+INSERT INTO users VALUES ("isaac", "isaac", "Isaac", "Newton", "isaac", 0);
+INSERT INTO users VALUES ("alan", "alan", "Alan", "Turing", "alan", 0);
+INSERT INTO users VALUES ("charles", "charles", "Charles", "Babbage", "charles", 0);
+INSERT INTO users VALUES ("james", "james", "James", "Gosling", "james", 0);
 
 INSERT INTO teams VALUES (1, "Agile Board team", "This is 511 project", 1);
 INSERT INTO teams VALUES (2, "Test team #2", "This is also 511 project", 1);
 
-INSERT INTO team_users VALUES (2, 1);
-INSERT INTO team_users VALUES (3, 1);
-INSERT INTO team_users VALUES (4, 2);
-INSERT INTO team_users VALUES (5, 2);
+INSERT INTO team_users VALUES ("user", 1);
+INSERT INTO team_users VALUES ("alex", 1);
+INSERT INTO team_users VALUES ("ramtin", 2);
+INSERT INTO team_users VALUES ("abhishek", 2);
 
 
 INSERT INTO statuses VALUES ("TODO", "TODO");
@@ -34,7 +44,7 @@ INSERT INTO iterations VALUES (5,'2013-3-13', '2013-3-18', 2, 1, 7);
 INSERT INTO iterations VALUES (6,'2013-3-20', '2013-3-27', 2, 0, 7);
 
 
-INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", 3, 3, 15, 3, "TODO");
+INSERT INTO tasks VALUES (1, "Task1: design DB", "design ER schema", "ramtin", "ramtin", 15, 6, "TODO");
 
 /*
 
