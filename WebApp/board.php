@@ -179,12 +179,11 @@
 			"task_id_pk" : $(this).find('#taskId').val(),
 			"task_name"  : $(this).find('#taskName').val(),
 		    "task_description" :  $(this).find('#taskDesc').val(),
-			"task_creator_id_fk" : <?php  echo $_SESSION['UserId'] ?>,
+			"task_creator_id_fk" : '<?php  echo $_SESSION['UserId'] ?>',
 			"taks_responsible_person_fk" : $(this).find('#taskReponsibleUser').find(':selected').val(),
 			"task_work_estimation" : $(this).find('#taskEstimate').val(),		
 			"ts_id_fk":  $(this).parent().attr('id').toUpperCase()				
 		 };	
-
 		$.ajax({
 			type: 'POST',
 			url: 'saveBoard.php',
