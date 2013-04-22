@@ -260,7 +260,7 @@
 						
 							<?Php
 								//User
-								if ($_SESSION['user_role'] == 0):
+								if (($_SESSION['user_role'] == 0) && ($_SESSION['team_id'] != "")):
 								?>
                 <div class="navbar">
                   <div class="navbar-inner">
