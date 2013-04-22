@@ -14,4 +14,17 @@
 		die("Database does not exist! mysql error: ".mysql_error());
 	}
 
+	$connectioni = mysqli_connect(SERVER,USERNAME,PASSWORD);
+
+	if (!$connectioni)
+	{
+		die("Database connection failed! mysql error: ". mysqli_error());
+	}
+	
+	$dbi = mysqli_select_db($connectioni, DBNAME);
+	if (!$dbi)
+	{
+		die("Database does not exist! mysql error: ".mysqli_error());
+	}
+
 ?>
