@@ -20,7 +20,8 @@
 					'sScrollY': '300px',
 					"aoColumns": [
 				                    { "bSortable": true, "bSearchable": true, "sWidth": "200px" },
-				                    { "bSortable": true, "bSearchable": true, "sWidth": "550px"},
+				                    { "bSortable": true, "bSearchable": true, "sWidth": "500px"},
+									{ "bSortable": false, "bSearchable": false, "sWidth": "50px"},				
 									{ "bSortable": false, "bSearchable": false, "sWidth": "50px"}				
 								 ]
 					});
@@ -31,12 +32,13 @@
 			<div id="content">
 				<div style="width:800px;margin: 30px auto;">
 					<button id="btnHome" class="btn btn-primary adminButton" type="button" onclick="location.href='board.php'">Back to Board Page</button>										
-					<button id="btnAdd" class="btn btn-primary adminButton" type="button" onclick="location.href='teamEdit.php?id=-1'">Add A New Team</button>					
+					<button id="btnAdd" class="btn btn-primary adminButton" type="button" onclick="location.href='teamEdit.php?id=-1'">Add A New Team</button><br /><br />					
 					<table id="gridTeams">
 						<thead>
 							<tr>
 								<th>Name</th>
 								<th>Description</th>
+								<th></th>
 								<th></th>
 							</tr>
 						</thead>
@@ -49,7 +51,8 @@
 									echo "<tr>
 										 	<td>{$item['team_name']}</td>
 											<td>{$item['team_description']}</td>
-											<td><a href='teamEdit.php?id={$item['team_id_pk']}'>Details</a></td>
+											<td><a href='teamEdit.php?id={$item['team_id_pk']}'>Edit</a></td>
+											<td><a href='teamHistory.php?id={$item['team_id_pk']}'>History</a></td>
 										</tr>";
 								}
 							?>													
