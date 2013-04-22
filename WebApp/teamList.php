@@ -49,7 +49,7 @@
 									echo "<tr>
 										 	<td>{$item['team_name']}</td>
 											<td>{$item['team_description']}</td>
-											<td><a href='teamEdit.php?id={$item['team_id_pk']}'>Edit</a></td>
+											<td><a href='teamEdit.php?id={$item['team_id_pk']}'>Details</a></td>
 										</tr>";
 								}
 							?>													
