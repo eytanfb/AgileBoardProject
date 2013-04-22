@@ -166,7 +166,12 @@
 		 if (taskId != -1)
 		 {
 			//remove from DB
-			$.post('saveBoard.php', {"action":"delete","task_id_pk":deleteTaskId}, function(data){});	
+			$.post('saveBoard.php', {
+                    "action":"delete",
+                    "task_id_pk":deleteTaskId, 
+                    "task_creator_id_fk" : '<?php  echo $_SESSION['UserId'] ?>',
+                    "task_name"  : item.parent().parent().parent().find('#taskName').val()
+            }, function(data){});	
 		 }
 		
 		item.parent().parent().parent().first().remove();

@@ -157,6 +157,17 @@
 	    }
 
 		$(document).ready(function(){
+
+                $('#team_action_log').dataTable({
+                    "bJQueryUI": false,
+                    'sScrollY': '200px',
+                    "aoColumns": [
+                    { "bSortable": true, "bSearchable": false, "sWidth": "600px" },
+                    { "bSortable": true, "bSearchable": false, "sWidth": "100px"},
+                    ]
+                    });
+
+
 			$("#btnAddTeamMember").click(function() {
 			  if($("#user_list").children().length < 1) { // no valid entries...
 			    return;	
@@ -192,21 +203,21 @@
 				<div style="margin:30 auto;width:800px;">
 				<form action="teamEdit.php" method="post">
 						<fieldset class="ui-widget ui-widget-content ui-corner-all">
-						<legend class="ui-widget ui-widget-header ui-corner-all"><?php if($is_new) {echo "Add a New Team";} else {echo "Edit or Delete";} ?></legend>
+						<legend class="ui-widget ui-widget-header ui-corner-all">&nbsp;&nbsp;&nbsp;<?php if($is_new) {echo "Add a New Team";} else {echo "Edit or Delete";} ?></legend>
 						<p>
-							<div style="float:left;width:200px;"><label for="name">Team Name:</label></div>
+							<div style="float:left;width:200px;"><label for="name">&nbsp;&nbsp;&nbsp;&nbsp;Team Name:</label></div>
 							<input id="name" name="name" type="text" <?php if(!$is_new) { echo "value=\"{$item['team_name']}\""; } ?> />
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="description">Description:</label></div>
+							<div style="float:left;width:200px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Description:</label></div>
 							<textarea id="description" name="description" rows="2" cols="50"><?php if(!$is_new) { echo $item['team_description']; } ?></textarea>
 						</p>	
 						<p>
-							<div style="float:left;width:200px;"><label for="board_name">Board Name:</label></div>
+							<div style="float:left;width:200px;"><label for="board_name">&nbsp;&nbsp;&nbsp;&nbsp;Board Name:</label></div>
 							<input id="board_name" name="board_name" type="text" <?php if(!$is_new) { echo "value=\"{$item['board_name']}\""; } ?> />
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="iteration_length">Iteration Length (weeks):</label></div>
+							<div style="float:left;width:200px;"><label for="iteration_length">&nbsp;&nbsp;&nbsp;&nbsp;Iteration Length (weeks):</label></div>
 							<select id="iteration_length" name="iteration_length"> <?php if(!$is_new) { echo "value={$item['team_name']}"; } ?>
 							<?php if(!$is_new) { ?>
 							    <option value="1" <?php if($item['iteration_length'] == 1) { echo "selected"; } ?>>1</option>
@@ -230,7 +241,7 @@
 							</select>
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="user_list">Assign Members:</label></div>
+							<div style="float:left;width:200px;"><label for="user_list">&nbsp;&nbsp;&nbsp;&nbsp;Assign Members:</label></div>
                             <select id="user_list" name="user_list">
                                 <?php if(count($users) > 0) {
                                     for($i = 0; $i < count($users); $i++) {
@@ -244,7 +255,7 @@
 							<input id="btnAddTeamMember" type="button" name="add" value="Add" />							
 						</p>	
 						<p>
-							<div style="float:left;width:200px;"><label for="description">Members:</label></div>
+							<div style="float:left;width:200px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Members:</label></div>
 							<table id="members_table"><tr><th colspan="2">Member</th><th>Options</th></tr>
                                 			<?php if(count($current_team_members) > 0) {
 							  foreach($current_team_members as $team_member) {
@@ -262,7 +273,7 @@
 							</table>
 						</p>	
 						<p>
-							<input id="btnSubmit" type="submit" name="<?php if(!$is_new) {echo "update";} else {echo "insert";}?>" value="Submit" />							
+							&nbsp;&nbsp;&nbsp;&nbsp;<input id="btnSubmit" type="submit" name="<?php if(!$is_new) {echo "update";} else {echo "insert";}?>" value="Submit" />							
 							<a id="discard" href="teamList.php">Back</a>						
 							<?php if(!$is_new):  ?>
 								<input type="hidden" name="id" value="<?php echo $item_id; ?>">
@@ -271,7 +282,45 @@
 						</p>
 					</fieldset>					
 				</form>
+
+                <div>
+				    <fieldset class="ui-widget ui-widget-content ui-corner-all">
+						<legend class="ui-widget ui-widget-header ui-corner-all">&nbsp;&nbsp;&nbsp;Team's History Log</legend>
+                        <table id="team_action_log">
+						<thead>
+							<tr>
+								<th>Action</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php
+								$query = "SELECT DISTINCT * FROM task_action_log WHERE tal_user_id_fk IN (SELECT DISTINCT team_users.tu_user_id_pk_fk FROM teams, team_users WHERE teams.team_id_pk=team_users.tu_team_id_pk_fk AND teams.team_id_pk='{$item_id}') ORDER BY tal_date DESC";
+								$items = mysql_query($query,$connection) or die(mysql_error());
+								while ($item = mysql_fetch_array($items))
+								{									
+									echo "<tr><td>";
+                                    if ($item['tal_change_type_id_fk'] == 1) { // create task
+                                        echo "{$item['tal_user_id_fk']} created new task #{$item['tal_task_id_fk']} ({$item['tal_old_attribute_value']})";
+                                    } else if ($item['tal_change_type_id_fk'] == 2) { // updated task
+                                        echo "{$item['tal_user_id_fk']} updated task #{$item['tal_task_id_fk']} ({$item['tal_old_attribute_value']})";
+                                    } else if ($item['tal_change_type_id_fk'] == 3) { // deleted task
+                                        echo "{$item['tal_user_id_fk']} deleted task #{$item['tal_task_id_fk']} ({$item['tal_old_attribute_value']})";
+                                    } else if ($item['tal_change_type_id_fk'] == 4) { // updated status
+                                        echo "{$item['tal_user_id_fk']} updated status of task #{$item['tal_task_id_fk']} ({$item['tal_old_attribute_value']}) {$item['tal_new_attribute_value']}";
+                                    }
+                                    echo "</td><td>{$item['tal_date']}</td>
+										</tr>";
+								}
+							?>													
+						</tbody>
+					</table>
+
+                    </fieldset>
+                </div>
+
 				</div>	
 			</div>
 
 <?php include('includes/footer.php')?>
+
