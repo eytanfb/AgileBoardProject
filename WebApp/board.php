@@ -2,6 +2,12 @@
 <?php check_authentication(); ?>
 <?php require_once('includes/connection.php') ?>
 
+<?php
+    if (isset($_GET['iterationID']) && $_GET['iterationID'] != '-1')
+    {
+        update_session_foradmin($_GET['iterationID']);
+    }
+?>
 <?php include('includes/header.php'); ?>
 <?php include('includes/navigation.php') ?>
 
@@ -98,11 +104,6 @@
 <script type="text/javascript">
 
 	<?php
-
-		if (isset($_GET['iterationID']) && $_GET['iterationID'] != '-1')
-		{
-			update_session_foradmin($_GET['iterationID']);
-		}
 		$query = "SELECT task_id_pk, task_name, task_description, task_work_estimation, taks_responsible_person_fk, ts_id_fk FROM tasks WHERE ti_id_fk='{$_SESSION['iteration_id']}' ";
 		$items = mysql_query($query);
 		$data = array();
