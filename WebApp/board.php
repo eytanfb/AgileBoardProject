@@ -207,7 +207,7 @@
 	$(function() {
 				
 		$('#newIteration').button({icons:{primary:"ui-icon-document"}}).click(function(){ location.href='newIteration.php';});
-		$('#iterationhistory').button({icons:{primary:"ui-icon-document"}}).click(function(){ location.href='iterationhistory.php';});		
+		$('#iterationHistory').button({icons:{primary:"ui-icon-document"}}).click(function(){ location.href='iterationHistory.php';});		
 		$('#addNewTask').button({icons:{primary:"ui-icon-document"}});
 		$('#saveBoard').button({icons:{primary:"ui-icon-disk"}});
 		$('#manageTeam').button({icons:{primary:"ui-icon-wrench"}});
@@ -275,7 +275,7 @@
                       <li id="addNewTask"><a href="#"><i class="icon-pencil"></i>Add a New Task</a></li>
                       <li id="saveBoard"><a href="#"><i class="icon-save"></i>Save Board</a></li>
                       <li id="newIteration"><a href="#"><i class="icon-calendar"></i>Create a New Iteration</a></li>
-                      <li id="iterationhistory"><a href="#"><i class="icon-flag"></i>Iteration History</a></li>
+                      <li id="iterationHistory"><a href="#"><i class="icon-flag"></i>Iteration History</a></li>
                     </ul>
                     <!-- <button id="addNewTask">Add a New Task</button>
                     <button id="saveBoard">Save Board</button>
