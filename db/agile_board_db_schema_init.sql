@@ -39,8 +39,8 @@ CREATE TABLE team_users(
 tu_user_id_pk_fk VARCHAR(20),
 tu_team_id_pk_fk INT,
 PRIMARY KEY(tu_user_id_pk_fk, tu_team_id_pk_fk),
-FOREIGN KEY (tu_user_id_pk_fk) REFERENCES users(user_id_pk),
-FOREIGN KEY (tu_team_id_pk_fk) REFERENCES teams(team_id_pk)
+FOREIGN KEY (tu_user_id_pk_fk) REFERENCES users(user_id_pk) ON DELETE CASCADE,
+FOREIGN KEY (tu_team_id_pk_fk) REFERENCES teams(team_id_pk) ON DELETE CASCADE
 );
 
 
@@ -51,7 +51,7 @@ bt_id_fk INT,
 board_name VARCHAR(20),
 board_isArchived BOOLEAN,
 PRIMARY KEY(board_id_pk),
-FOREIGN KEY(bt_id_fk) REFERENCES teams(team_id_pk)
+FOREIGN KEY(bt_id_fk) REFERENCES teams(team_id_pk) ON DELETE CASCADE
 );
 
 
@@ -64,7 +64,7 @@ ib_id_fk INT,
 iteration_isArchived BOOLEAN,
 iteration_number INT,
 PRIMARY KEY(iteration_id_pk),
-FOREIGN KEY(ib_id_fk) REFERENCES boards(board_id_pk)
+FOREIGN KEY(ib_id_fk) REFERENCES boards(board_id_pk) ON DELETE CASCADE
 );
 
 
@@ -87,10 +87,10 @@ task_work_estimation INT,
 ti_id_fk INT,
 ts_id_fk VARCHAR(20),
 PRIMARY KEY(task_id_pk),
-FOREIGN KEY (task_creator_id_fk) REFERENCES users(user_id_pk),
-FOREIGN KEY (taks_responsible_person_fk) REFERENCES users(user_id_pk),
-FOREIGN KEY (ti_id_fk) REFERENCES iterations(iteration_id_pk),
-FOREIGN KEY (ts_id_fk) REFERENCES statuses(status_id_pk)
+FOREIGN KEY (task_creator_id_fk) REFERENCES users(user_id_pk) ON DELETE CASCADE,
+FOREIGN KEY (taks_responsible_person_fk) REFERENCES users(user_id_pk) ON DELETE CASCADE,
+FOREIGN KEY (ti_id_fk) REFERENCES iterations(iteration_id_pk) ON DELETE CASCADE,
+FOREIGN KEY (ts_id_fk) REFERENCES statuses(status_id_pk) ON DELETE CASCADE
 );
 
 /*Table to store details of which change types can be made on the table*/
