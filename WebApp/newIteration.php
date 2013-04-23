@@ -72,10 +72,24 @@
 					});
 						
 		});
+		
+		function validateForm(){
+			
+			var sd =  $('#startDate').datepicker('getDate');
+			var ed =  $('#endDate').datepicker('getDate');
+			
+			if (sd>ed){
+				alert('Start date should be smaller than end date!');
+				return false;
+			}
+			
+			return true;
+		}
+		
 	</script>
 			<div id="content">
 				<div style="margin:30 auto;width:800px;">
-				<form action="newIteration.php" method="post">
+				<form action="newIteration.php" method="post" onsubmit="return validateForm()">
 						<fieldset class="ui-widget ui-widget-content ui-corner-all">
 						<legend class="ui-widget ui-widget-header ui-corner-all">Add a new Iteration</legend>
 						<p>
