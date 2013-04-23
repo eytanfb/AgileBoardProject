@@ -161,7 +161,11 @@
 	//delete task
 	function deleteTask(item)
 	{
-		deleteTaskId = item.parent().parent().parent().find('#taskId').val();
+        if (!confirm('Are you sure you want to delete this task?')) {
+            return;
+        } 
+
+        deleteTaskId = item.parent().parent().parent().find('#taskId').val();
 				
 		 if (taskId != -1)
 		 {
