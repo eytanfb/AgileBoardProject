@@ -50,7 +50,7 @@
 							while ($item2 = mysql_fetch_array($result_set2))
 							{
 								echo '<li>';
-								echo  '<span class="t">' . $item2['task_name'] . '</span>' . ': ' . $item2['task_description'] . ' <span style="color:black">(' . $item2['taks_responsible_person_fk'] . '</span>)';
+								echo  $item2['task_name'] . ': ' . $item2['task_description'] . ' <span style="color:black">(' . $item2['taks_responsible_person_fk'] . ')</span>';
 								echo '</li>';
 							}
 							echo '</ul>';
