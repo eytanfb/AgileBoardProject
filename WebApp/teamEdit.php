@@ -198,7 +198,7 @@
 			$('#description').focus(function() {$('#description').addClass("ui-state-highlight");});				
 			$('#description').blur(function()  {$('#description').removeClass("ui-state-highlight");});
 
-            $("#myForm").submit(function(e){
+            $("#btnDelete").click(function(e){
                 if(!confirm("WARNING: Deleting a team will delete all tasks that belong to it. Are you sure you want to continue?")) {
                     return false;
                 }
