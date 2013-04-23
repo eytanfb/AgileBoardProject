@@ -18,7 +18,7 @@
                     "bJQueryUI": false,
                     'sScrollY': '200px',
                     "aoColumns": [
-                    { "bSortable": true, "bSearchable": false, "sWidth": "600px" },
+                    { "bSortable": true, "bSearchable": true, "sWidth": "600px" },
                     { "bSortable": true, "bSearchable": false, "sWidth": "100px"},
                     ]
                     });
