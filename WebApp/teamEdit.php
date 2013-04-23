@@ -197,13 +197,19 @@
 			
 			$('#description').focus(function() {$('#description').addClass("ui-state-highlight");});				
 			$('#description').blur(function()  {$('#description').removeClass("ui-state-highlight");});
+
+            $("#myForm").submit(function(e){
+                if(!confirm("WARNING: Deleting a team will delete all tasks that belong to it. Are you sure you want to continue?")) {
+                    return false;
+                }
+            });
 			
 		});
 	</script>
 			<div id="content">
 				<div style="margin:30 auto;width:800px;">
 					<button id="btnHome" class="btn btn-primary adminButton" type="button" onclick="location.href='teamList.php'">Back to Team Listing's Page</button><br /><br />										
-				<form action="teamEdit.php" method="post">
+				<form id="myForm" action="teamEdit.php" method="post">
 						<fieldset class="ui-widget ui-widget-content ui-corner-all">
 						<legend class="ui-widget ui-widget-header ui-corner-all">&nbsp;&nbsp;&nbsp;<?php if($is_new) {echo "Add a New Team";} else {echo "Edit or Delete";} ?></legend>
 						<p>
