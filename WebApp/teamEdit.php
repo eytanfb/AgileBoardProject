@@ -204,6 +204,23 @@
                 }
             });
 			
+            $("#myForm").submit(function(e){
+                var pattern = /^\s+?$/;
+                if($("#name").val() == null || $("#name").val() == '' || $("#name").val().match(pattern)) {
+                    alert("Error: Name field cannot be empty or blank!");
+                    return false;
+                }
+
+                if($("#description").val() == null || $("#description").val() == '' || $("#description").val().match(pattern)) {
+                    alert("Error: Description field cannot be empty or blank!");
+                    return false;
+                }
+
+                if($("#board_name").val() == null || $("#board_name").val() == '' || $("#board_name").val().match(pattern)) {
+                    alert("Error: Board name field cannot be empty or blank!");
+                    return false;
+                }
+            });
 		});
 	</script>
 			<div id="content">
