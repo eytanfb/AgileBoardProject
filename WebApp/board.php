@@ -15,7 +15,7 @@
 
 	.column { 
 		width: 33%;
-		height: 88%; 
+/*		height: 100%; */
 		float: left; 
 		margin:5px 1px;
 		border:1px solid black;
@@ -54,23 +54,33 @@
 		width:100%;
 		height:100%;
 		padding:2px;
+		margin:0px;
 	}
 	
 	.taskContainer li{
 		float:left;
 		list-style: none;
-		margin:0 5px;
+		margin:20px 15px;
 	}
 	
-	input[id*="task"] , select, option{
+	input[id*="task"], textarea , select, option{
 		border:0px;
 		color:black;
 		background-color:yellow;
 		width:165px;
-		height:20px;
-		margin-left:3px;
+/*		height:20px;*/
+		margin:0px;
 		font-family:"Comic Sans MS";
 		font-size:10pt;
+		box-shadow:none;
+	}
+	
+	input[id*="task"]{
+		height:22px;
+	}
+	
+	#taskDesc{
+		
 	}
 	
 	#iterationSelector, #iterationSelector option{
@@ -122,7 +132,7 @@
 			 		   					<div class='ui-icon ui-icon-arrow-4-diag' style='float:left'></div> <div style='float:right'><a class='ui-icon ui-icon-trash' href='#' onclick='deleteTask($(this))'></a></div> \
 			 							<input id='taskId' name='taskId' type='hidden' value='[taskIdVal]' > \
 					    				<input id='taskName' name='taskName' type='text' placeholder='Task Name' value='[taskNameVal]'> \
-	 									<input id='taskDesc' name='taskDesc' type='text' placeholder='Task Desc' value='[taskDesc]'> \
+	 									<textarea id='taskDesc' name='taskDesc' rows='2' placeholder='Task Desc'>[taskDesc]</textarea> \
 	 									<input id='taskEstimate' name='taskEstimate' type='text' placeholder='Task Estimate (hour)' value='[taskEstimateVal]' > \
 										<select id='taskReponsibleUser' name='reponsibleUser'>[UserList_PLACEHOLDER]</select> \
 	 	   							</div>  \
