@@ -288,9 +288,6 @@
                       <li id="iterationHistory"><a href="#"><i class="icon-flag"></i>Iteration History</a></li>
                       <li id="userManual"><a href="../doc/User Manual.pdf"><i class="icon-book"></i>User Manual</a></li>
                     </ul>
-                    <!-- <button id="addNewTask">Add a New Task</button>
-                    <button id="saveBoard">Save Board</button>
-                    <button id="newIteration">Create a New Iteration</button> -->
                   </div>
                 </div>
 							<?php endif;?>							
@@ -319,7 +316,8 @@
 									?>
 										</select>
 								</form>
-								<button class="btn btn-primary adminButton" id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>								
+								<button class="btn btn-primary adminButton" id="manageTeam" onclick="javascript:location.href='teamList.php'">Manage Teams</button>
+                                <button class="btn btn-primary adminButton" id="userManual" onclick="javascript:location.href='../doc/User Manual.pdf'"><i class="icon-book"></i>User Manual</button>
 							<?php endif;?>					
 				</div>	
 										
