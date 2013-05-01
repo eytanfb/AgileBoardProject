@@ -82,7 +82,28 @@
 				alert('Start date should be smaller than end date!');
 				return false;
 			}
-			
+
+            // check all fields for completeness
+            var pattern = /^\s+?$/;
+            if($("#number").val() == null || $("#number").val() == '' || $("#number").val().match(pattern)) {
+                alert("Error: Iteration number cannot be empty or blank!");
+                return false;
+            }
+
+            if($("#startDate").val() == null || $("#startDate").val() == '' || $("#startDate").val().match(pattern)) {
+                alert("Error: Start date cannot be empty or blank!");
+                return false;
+            }
+
+            if($("#endDate").val() == null || $("#endDate").val() == '' || $("#endDate").val().match(pattern)) {
+                alert("Error: End date cannot be empty or blank!");
+                return false;
+            }
+
+            if(!confirm('WARNING: Creating new iteration requires logging out of the system. Are you sure you want to continue?')) {
+                return false;                    
+            }  
+
 			return true;
 		}
 		
@@ -144,3 +165,5 @@
 			</div>
 
 <?php include('includes/footer.php')?>
+
+
