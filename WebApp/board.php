@@ -286,6 +286,7 @@
                       <li id="saveBoard"><a href="#"><i class="icon-save"></i>Save Board</a></li>
                       <li id="newIteration"><a href="#"><i class="icon-calendar"></i>Create a New Iteration</a></li>
                       <li id="iterationHistory"><a href="#"><i class="icon-flag"></i>Iteration History</a></li>
+                      <li id="userManual"><a href="../doc/User Manual.pdf"><i class="icon-book"></i>User Manual</a></li>
                     </ul>
                     <!-- <button id="addNewTask">Add a New Task</button>
                     <button id="saveBoard">Save Board</button>
