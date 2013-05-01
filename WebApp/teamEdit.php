@@ -179,7 +179,7 @@
 			  if(!userID) { return; }
 
 			  // add this user to "members" table
-			  $('#members_table').append('<tr id="tr_' + userID + '"><td id="tr_' + userID + '_fn">' + fName + '</td><td id="tr_' + userID + '_ln">' + lName + '</td><td><a href="#" name="remove_lnk" id="remove_' + userID + '" onClick="deleteMember(\'tr_' + userID + '\');">Remove from Group</a><input type="hidden" id="tr_' + userID + '_id" name="member_ids[]" value="' + userID + '" /></td></tr>')
+			  $('#members_table').append('<tr id="tr_' + userID + '"><td id="tr_' + userID + '_fn">' + fName + '&nbsp;&nbsp;&nbsp;&nbsp;</td><td id="tr_' + userID + '_ln">' + lName + '&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="#" name="remove_lnk" id="remove_' + userID + '" onClick="deleteMember(\'tr_' + userID + '\');">Remove from Group</a><input type="hidden" id="tr_' + userID + '_id" name="member_ids[]" value="' + userID + '" /></td></tr>')
 
 			  // now delete this entry from the drop down..
 			  $("#user_list option:selected").remove();
@@ -230,19 +230,19 @@
 						<fieldset class="ui-widget ui-widget-content ui-corner-all">
 						<legend class="ui-widget ui-widget-header ui-corner-all">&nbsp;&nbsp;&nbsp;<?php if($is_new) {echo "Add a New Team";} else {echo "Edit or Delete";} ?></legend>
 						<p>
-							<div style="float:left;width:200px;"><label for="name">&nbsp;&nbsp;&nbsp;&nbsp;Team Name:</label></div>
+							<div style="float:left;width:225px;"><label for="name">&nbsp;&nbsp;&nbsp;&nbsp;Team Name:</label></div>
 							<input id="name" name="name" type="text" <?php if(!$is_new) { echo "value=\"{$item['team_name']}\""; } ?> />
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Description:</label></div>
+							<div style="float:left;width:225px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Description:</label></div>
 							<textarea id="description" name="description" rows="2" cols="50"><?php if(!$is_new) { echo $item['team_description']; } ?></textarea>
 						</p>	
 						<p>
-							<div style="float:left;width:200px;"><label for="board_name">&nbsp;&nbsp;&nbsp;&nbsp;Board Name:</label></div>
+							<div style="float:left;width:225px;"><label for="board_name">&nbsp;&nbsp;&nbsp;&nbsp;Board Name:</label></div>
 							<input id="board_name" name="board_name" type="text" <?php if(!$is_new) { echo "value=\"{$item['board_name']}\""; } ?> />
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="iteration_length">&nbsp;&nbsp;&nbsp;&nbsp;Iteration Length (weeks):</label></div>
+							<div style="float:left;width:225px;"><label for="iteration_length">&nbsp;&nbsp;&nbsp;&nbsp;Length of each iteration (weeks):</label></div>
 							<select id="iteration_length" name="iteration_length"> <?php if(!$is_new) { echo "value={$item['team_name']}"; } ?>
 							<?php if(!$is_new) { ?>
 							    <option value="1" <?php if($item['iteration_length'] == 1) { echo "selected"; } ?>>1</option>
@@ -266,7 +266,7 @@
 							</select>
 						</p>
 						<p>
-							<div style="float:left;width:200px;"><label for="user_list">&nbsp;&nbsp;&nbsp;&nbsp;Assign Members:</label></div>
+							<div style="float:left;width:225px;"><label for="user_list">&nbsp;&nbsp;&nbsp;&nbsp;Assign Members:</label></div>
                             <select id="user_list" name="user_list">
                                 <?php if(count($users) > 0) {
                                     for($i = 0; $i < count($users); $i++) {
@@ -280,18 +280,18 @@
 							<input id="btnAddTeamMember" type="button" name="add" value="Add" />							
 						</p>	
 						<p>
-							<div style="float:left;width:200px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Members:</label></div>
+							<div style="float:left;width:225px;"><label for="description">&nbsp;&nbsp;&nbsp;&nbsp;Members:</label></div>
 							<table id="members_table"><tr><th colspan="2">Member</th><th>Options</th></tr>
                                 			<?php if(count($current_team_members) > 0) {
 							  foreach($current_team_members as $team_member) {
 							    echo "<tr id=\"tr_" . $team_member['user_id'] . "\"><td id=\"tr_" . $team_member['user_id'] . "_fn\">";
 							    echo $team_member['user_first_name'];
-							    echo "</td><td id=\"tr_" . $team_member['user_id'] . "_ln\">";
+							    echo "&nbsp;&nbsp;&nbsp;&nbsp;</td><td id=\"tr_" . $team_member['user_id'] . "_ln\">";
 							    echo $team_member['user_last_name'];
-							    echo "</td><td>";
+							    echo "&nbsp;&nbsp;&nbsp;&nbsp;</td><td>";
 							    echo "<a href=\"#\" name=\"remove_lnk\" id=\"remove_" . $team_member['user_id'] . "\" onClick=\"deleteMember('tr_" . $team_member['user_id'] . "');\">Remove from Group</a>";
 							    echo "<input type=\"hidden\" id=\"tr_" . $team_member['user_id'] . "_id\" name=\"member_ids[]\" value=\"" . $team_member['user_id'] . "\" />";
-							    echo "</td></tr>";
+							    echo "&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>";
 							  }
                                   			}
                                  			?>
